@@ -80,9 +80,10 @@ Partial Class Prd_detail
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial Black", 25.0!)
         Me.Label4.ForeColor = System.Drawing.Color.Aqua
-        Me.Label4.Location = New System.Drawing.Point(96, 79)
+        Me.Label4.Location = New System.Drawing.Point(192, 152)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(307, 48)
+        Me.Label4.Size = New System.Drawing.Size(606, 95)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "WORK DETAILS"
         '
@@ -111,9 +112,10 @@ Partial Class Prd_detail
         Me.Panel1.Controls.Add(Me.Label11)
         Me.Panel1.Controls.Add(Me.Label10)
         Me.Panel1.Controls.Add(Me.Label9)
-        Me.Panel1.Location = New System.Drawing.Point(12, 133)
+        Me.Panel1.Location = New System.Drawing.Point(24, 256)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(775, 346)
+        Me.Panel1.Size = New System.Drawing.Size(1550, 665)
         Me.Panel1.TabIndex = 15
         '
         'lb_remain_qty
@@ -121,9 +123,10 @@ Partial Class Prd_detail
         Me.lb_remain_qty.AutoSize = True
         Me.lb_remain_qty.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.lb_remain_qty.ForeColor = System.Drawing.Color.Red
-        Me.lb_remain_qty.Location = New System.Drawing.Point(574, 293)
+        Me.lb_remain_qty.Location = New System.Drawing.Point(1148, 563)
+        Me.lb_remain_qty.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.lb_remain_qty.Name = "lb_remain_qty"
-        Me.lb_remain_qty.Size = New System.Drawing.Size(143, 38)
+        Me.lb_remain_qty.Size = New System.Drawing.Size(285, 76)
         Me.lb_remain_qty.TabIndex = 38
         Me.lb_remain_qty.Text = "XXXXXX"
         '
@@ -132,9 +135,10 @@ Partial Class Prd_detail
         Me.lb_plan_qty.AutoSize = True
         Me.lb_plan_qty.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.lb_plan_qty.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lb_plan_qty.Location = New System.Drawing.Point(532, 237)
+        Me.lb_plan_qty.Location = New System.Drawing.Point(1064, 456)
+        Me.lb_plan_qty.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.lb_plan_qty.Name = "lb_plan_qty"
-        Me.lb_plan_qty.Size = New System.Drawing.Size(143, 38)
+        Me.lb_plan_qty.Size = New System.Drawing.Size(285, 76)
         Me.lb_plan_qty.TabIndex = 37
         Me.lb_plan_qty.Text = "XXXXXX"
         '
@@ -143,9 +147,10 @@ Partial Class Prd_detail
         Me.lb_wi.AutoSize = True
         Me.lb_wi.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.lb_wi.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lb_wi.Location = New System.Drawing.Point(93, 182)
+        Me.lb_wi.Location = New System.Drawing.Point(186, 350)
+        Me.lb_wi.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.lb_wi.Name = "lb_wi"
-        Me.lb_wi.Size = New System.Drawing.Size(227, 38)
+        Me.lb_wi.Size = New System.Drawing.Size(453, 76)
         Me.lb_wi.TabIndex = 36
         Me.lb_wi.Text = "XXXXXXXXXX"
         '
@@ -154,9 +159,10 @@ Partial Class Prd_detail
         Me.lb_model.AutoSize = True
         Me.lb_model.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.lb_model.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lb_model.Location = New System.Drawing.Point(162, 123)
+        Me.lb_model.Location = New System.Drawing.Point(324, 237)
+        Me.lb_model.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.lb_model.Name = "lb_model"
-        Me.lb_model.Size = New System.Drawing.Size(101, 38)
+        Me.lb_model.Size = New System.Drawing.Size(201, 76)
         Me.lb_model.TabIndex = 35
         Me.lb_model.Text = "XXXX"
         '
@@ -165,9 +171,10 @@ Partial Class Prd_detail
         Me.lb_item_name.AutoSize = True
         Me.lb_item_name.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.lb_item_name.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lb_item_name.Location = New System.Drawing.Point(240, 67)
+        Me.lb_item_name.Location = New System.Drawing.Point(480, 129)
+        Me.lb_item_name.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.lb_item_name.Name = "lb_item_name"
-        Me.lb_item_name.Size = New System.Drawing.Size(353, 38)
+        Me.lb_item_name.Size = New System.Drawing.Size(705, 76)
         Me.lb_item_name.TabIndex = 34
         Me.lb_item_name.Text = "XXXXXXXXXXXXXXXX"
         '
@@ -176,9 +183,10 @@ Partial Class Prd_detail
         Me.lb_item_cd.AutoSize = True
         Me.lb_item_cd.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.lb_item_cd.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lb_item_cd.Location = New System.Drawing.Point(208, 13)
+        Me.lb_item_cd.Location = New System.Drawing.Point(416, 25)
+        Me.lb_item_cd.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.lb_item_cd.Name = "lb_item_cd"
-        Me.lb_item_cd.Size = New System.Drawing.Size(206, 38)
+        Me.lb_item_cd.Size = New System.Drawing.Size(411, 76)
         Me.lb_item_cd.TabIndex = 33
         Me.lb_item_cd.Text = "XXXXXXXXX"
         '
@@ -187,9 +195,10 @@ Partial Class Prd_detail
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.Label16.ForeColor = System.Drawing.Color.MintCream
-        Me.Label16.Location = New System.Drawing.Point(326, 293)
+        Me.Label16.Location = New System.Drawing.Point(652, 563)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(227, 38)
+        Me.Label16.Size = New System.Drawing.Size(452, 76)
         Me.Label16.TabIndex = 32
         Me.Label16.Text = "REMAIN QTY :"
         '
@@ -198,9 +207,10 @@ Partial Class Prd_detail
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.Label15.ForeColor = System.Drawing.Color.MintCream
-        Me.Label15.Location = New System.Drawing.Point(326, 237)
+        Me.Label15.Location = New System.Drawing.Point(652, 456)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(188, 38)
+        Me.Label15.Size = New System.Drawing.Size(374, 76)
         Me.Label15.TabIndex = 31
         Me.Label15.Text = "PLAN QTY :"
         '
@@ -209,9 +219,10 @@ Partial Class Prd_detail
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.Label14.ForeColor = System.Drawing.Color.MintCream
-        Me.Label14.Location = New System.Drawing.Point(12, 182)
+        Me.Label14.Location = New System.Drawing.Point(24, 350)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(73, 38)
+        Me.Label14.Size = New System.Drawing.Size(144, 76)
         Me.Label14.TabIndex = 30
         Me.Label14.Text = "WI :"
         '
@@ -220,9 +231,10 @@ Partial Class Prd_detail
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.Label13.ForeColor = System.Drawing.Color.MintCream
-        Me.Label13.Location = New System.Drawing.Point(12, 123)
+        Me.Label13.Location = New System.Drawing.Point(24, 237)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(141, 38)
+        Me.Label13.Size = New System.Drawing.Size(282, 76)
         Me.Label13.TabIndex = 29
         Me.Label13.Text = "MODEL :"
         '
@@ -231,9 +243,10 @@ Partial Class Prd_detail
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.Label8.ForeColor = System.Drawing.Color.MintCream
-        Me.Label8.Location = New System.Drawing.Point(12, 67)
+        Me.Label8.Location = New System.Drawing.Point(24, 129)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(212, 38)
+        Me.Label8.Size = New System.Drawing.Size(420, 76)
         Me.Label8.TabIndex = 28
         Me.Label8.Text = "PART NAME :"
         '
@@ -242,9 +255,10 @@ Partial Class Prd_detail
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.Label7.ForeColor = System.Drawing.Color.MintCream
-        Me.Label7.Location = New System.Drawing.Point(12, 13)
+        Me.Label7.Location = New System.Drawing.Point(24, 25)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(173, 38)
+        Me.Label7.Size = New System.Drawing.Size(342, 76)
         Me.Label7.TabIndex = 27
         Me.Label7.Text = "PART No. :"
         '
@@ -253,9 +267,10 @@ Partial Class Prd_detail
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.Label2.ForeColor = System.Drawing.Color.DarkOrange
-        Me.Label2.Location = New System.Drawing.Point(162, 293)
+        Me.Label2.Location = New System.Drawing.Point(324, 563)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(101, 38)
+        Me.Label2.Size = New System.Drawing.Size(201, 76)
         Me.Label2.TabIndex = 22
         Me.Label2.Text = "XXXX"
         '
@@ -265,9 +280,10 @@ Partial Class Prd_detail
         Me.Label12.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label12.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.Label12.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label12.Location = New System.Drawing.Point(481, 181)
+        Me.Label12.Location = New System.Drawing.Point(962, 348)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(258, 38)
+        Me.Label12.Size = New System.Drawing.Size(513, 76)
         Me.Label12.TabIndex = 18
         Me.Label12.Text = "A (08:00 - 17:00)"
         '
@@ -276,9 +292,10 @@ Partial Class Prd_detail
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.Label6.ForeColor = System.Drawing.Color.DarkOrange
-        Me.Label6.Location = New System.Drawing.Point(162, 237)
+        Me.Label6.Location = New System.Drawing.Point(324, 456)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(101, 38)
+        Me.Label6.Size = New System.Drawing.Size(201, 76)
         Me.Label6.TabIndex = 17
         Me.Label6.Text = "XXXX"
         '
@@ -288,9 +305,10 @@ Partial Class Prd_detail
         Me.TextBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.TextBox1.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.TextBox1.ForeColor = System.Drawing.SystemColors.Window
-        Me.TextBox1.Location = New System.Drawing.Point(478, 178)
+        Me.TextBox1.Location = New System.Drawing.Point(956, 342)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(272, 45)
+        Me.TextBox1.Size = New System.Drawing.Size(540, 83)
         Me.TextBox1.TabIndex = 16
         '
         'Label11
@@ -298,9 +316,10 @@ Partial Class Prd_detail
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.Label11.ForeColor = System.Drawing.Color.MintCream
-        Me.Label11.Location = New System.Drawing.Point(12, 237)
+        Me.Label11.Location = New System.Drawing.Point(24, 456)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(152, 38)
+        Me.Label11.Size = New System.Drawing.Size(303, 76)
         Me.Label11.TabIndex = 14
         Me.Label11.Text = "LOT No. :"
         '
@@ -309,9 +328,10 @@ Partial Class Prd_detail
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.Label10.ForeColor = System.Drawing.Color.MintCream
-        Me.Label10.Location = New System.Drawing.Point(12, 293)
+        Me.Label10.Location = New System.Drawing.Point(24, 563)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(130, 38)
+        Me.Label10.Size = New System.Drawing.Size(257, 76)
         Me.Label10.TabIndex = 13
         Me.Label10.Text = "STAFF :"
         '
@@ -320,9 +340,10 @@ Partial Class Prd_detail
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.Label9.ForeColor = System.Drawing.Color.MintCream
-        Me.Label9.Location = New System.Drawing.Point(326, 182)
+        Me.Label9.Location = New System.Drawing.Point(652, 350)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(135, 38)
+        Me.Label9.Size = New System.Drawing.Size(267, 76)
         Me.Label9.TabIndex = 12
         Me.Label9.Text = "SHIFT  :"
         '
@@ -331,9 +352,10 @@ Partial Class Prd_detail
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial Black", 26.0!)
         Me.Label3.ForeColor = System.Drawing.Color.Aqua
-        Me.Label3.Location = New System.Drawing.Point(287, 26)
+        Me.Label3.Location = New System.Drawing.Point(574, 50)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(170, 50)
+        Me.Label3.Size = New System.Drawing.Size(342, 99)
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "K1A003"
         '
@@ -342,9 +364,10 @@ Partial Class Prd_detail
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Arial Black", 26.0!)
         Me.Label5.ForeColor = System.Drawing.Color.Aqua
-        Me.Label5.Location = New System.Drawing.Point(94, 26)
+        Me.Label5.Location = New System.Drawing.Point(188, 50)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(203, 50)
+        Me.Label5.Size = New System.Drawing.Size(402, 99)
         Me.Label5.TabIndex = 9
         Me.Label5.Text = "LINE CD :"
         '
@@ -356,9 +379,10 @@ Partial Class Prd_detail
         Me.lb_snp.AutoSize = True
         Me.lb_snp.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.lb_snp.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lb_snp.Location = New System.Drawing.Point(12, 482)
+        Me.lb_snp.Location = New System.Drawing.Point(24, 927)
+        Me.lb_snp.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.lb_snp.Name = "lb_snp"
-        Me.lb_snp.Size = New System.Drawing.Size(70, 38)
+        Me.lb_snp.Size = New System.Drawing.Size(138, 76)
         Me.lb_snp.TabIndex = 39
         Me.lb_snp.Text = "snp"
         Me.lb_snp.Visible = False
@@ -368,9 +392,10 @@ Partial Class Prd_detail
         Me.lb_ct.AutoSize = True
         Me.lb_ct.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.lb_ct.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lb_ct.Location = New System.Drawing.Point(12, 513)
+        Me.lb_ct.Location = New System.Drawing.Point(24, 987)
+        Me.lb_ct.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.lb_ct.Name = "lb_ct"
-        Me.lb_ct.Size = New System.Drawing.Size(47, 38)
+        Me.lb_ct.Size = New System.Drawing.Size(93, 76)
         Me.lb_ct.TabIndex = 40
         Me.lb_ct.Text = "ct"
         Me.lb_ct.Visible = False
@@ -380,9 +405,10 @@ Partial Class Prd_detail
         Me.lb_seq.AutoSize = True
         Me.lb_seq.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.lb_seq.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lb_seq.Location = New System.Drawing.Point(12, 541)
+        Me.lb_seq.Location = New System.Drawing.Point(24, 1040)
+        Me.lb_seq.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.lb_seq.Name = "lb_seq"
-        Me.lb_seq.Size = New System.Drawing.Size(70, 38)
+        Me.lb_seq.Size = New System.Drawing.Size(138, 76)
         Me.lb_seq.TabIndex = 41
         Me.lb_seq.Text = "seq"
         Me.lb_seq.Visible = False
@@ -392,9 +418,10 @@ Partial Class Prd_detail
         Me.lb_dlv_date.AutoSize = True
         Me.lb_dlv_date.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.lb_dlv_date.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lb_dlv_date.Location = New System.Drawing.Point(88, 482)
+        Me.lb_dlv_date.Location = New System.Drawing.Point(176, 927)
+        Me.lb_dlv_date.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.lb_dlv_date.Name = "lb_dlv_date"
-        Me.lb_dlv_date.Size = New System.Drawing.Size(141, 38)
+        Me.lb_dlv_date.Size = New System.Drawing.Size(278, 76)
         Me.lb_dlv_date.TabIndex = 42
         Me.lb_dlv_date.Text = "dlv_date"
         Me.lb_dlv_date.Visible = False
@@ -404,9 +431,10 @@ Partial Class Prd_detail
         Me.lb_location.AutoSize = True
         Me.lb_location.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.lb_location.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lb_location.Location = New System.Drawing.Point(88, 513)
+        Me.lb_location.Location = New System.Drawing.Point(176, 987)
+        Me.lb_location.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.lb_location.Name = "lb_location"
-        Me.lb_location.Size = New System.Drawing.Size(137, 38)
+        Me.lb_location.Size = New System.Drawing.Size(272, 76)
         Me.lb_location.TabIndex = 43
         Me.lb_location.Text = "location"
         Me.lb_location.Visible = False
@@ -416,9 +444,10 @@ Partial Class Prd_detail
         Me.lb_prd_type.AutoSize = True
         Me.lb_prd_type.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.lb_prd_type.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lb_prd_type.Location = New System.Drawing.Point(88, 541)
+        Me.lb_prd_type.Location = New System.Drawing.Point(176, 1040)
+        Me.lb_prd_type.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.lb_prd_type.Name = "lb_prd_type"
-        Me.lb_prd_type.Size = New System.Drawing.Size(145, 38)
+        Me.lb_prd_type.Size = New System.Drawing.Size(286, 76)
         Me.lb_prd_type.TabIndex = 44
         Me.lb_prd_type.Text = "prd_type"
         Me.lb_prd_type.Visible = False
@@ -428,9 +457,10 @@ Partial Class Prd_detail
         Me.lb_temp_txt.AutoSize = True
         Me.lb_temp_txt.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.lb_temp_txt.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lb_temp_txt.Location = New System.Drawing.Point(285, 488)
+        Me.lb_temp_txt.Location = New System.Drawing.Point(570, 938)
+        Me.lb_temp_txt.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.lb_temp_txt.Name = "lb_temp_txt"
-        Me.lb_temp_txt.Size = New System.Drawing.Size(148, 38)
+        Me.lb_temp_txt.Size = New System.Drawing.Size(294, 76)
         Me.lb_temp_txt.TabIndex = 45
         Me.lb_temp_txt.Text = "temp_txt"
         Me.lb_temp_txt.Visible = False
@@ -440,9 +470,10 @@ Partial Class Prd_detail
         Me.lb_temp_line.AutoSize = True
         Me.lb_temp_line.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.lb_temp_line.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lb_temp_line.Location = New System.Drawing.Point(451, 73)
+        Me.lb_temp_line.Location = New System.Drawing.Point(902, 140)
+        Me.lb_temp_line.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.lb_temp_line.Name = "lb_temp_line"
-        Me.lb_temp_line.Size = New System.Drawing.Size(187, 38)
+        Me.lb_temp_line.Size = New System.Drawing.Size(369, 76)
         Me.lb_temp_line.TabIndex = 39
         Me.lb_temp_line.Text = "TEMP_LINE"
         Me.lb_temp_line.Visible = False
@@ -452,9 +483,10 @@ Partial Class Prd_detail
         Me.Panel3.BackgroundImage = CType(resources.GetObject("Panel3.BackgroundImage"), System.Drawing.Image)
         Me.Panel3.Controls.Add(Me.Label22)
         Me.Panel3.Controls.Add(Me.Label1)
-        Me.Panel3.Location = New System.Drawing.Point(644, 7)
+        Me.Panel3.Location = New System.Drawing.Point(1288, 13)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(172, 122)
+        Me.Panel3.Size = New System.Drawing.Size(344, 235)
         Me.Panel3.TabIndex = 26
         '
         'Label22
@@ -463,9 +495,10 @@ Partial Class Prd_detail
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Arial Black", 15.0!, System.Drawing.FontStyle.Bold)
         Me.Label22.ForeColor = System.Drawing.Color.White
-        Me.Label22.Location = New System.Drawing.Point(23, 39)
+        Me.Label22.Location = New System.Drawing.Point(46, 75)
+        Me.Label22.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(84, 28)
+        Me.Label22.Size = New System.Drawing.Size(172, 56)
         Me.Label22.TabIndex = 0
         Me.Label22.Text = "Label2"
         '
@@ -475,18 +508,20 @@ Partial Class Prd_detail
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(42, 66)
+        Me.Label1.Location = New System.Drawing.Point(84, 127)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(70, 23)
+        Me.Label1.Size = New System.Drawing.Size(136, 45)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Label1"
         '
         'Panel2
         '
         Me.Panel2.BackgroundImage = CType(resources.GetObject("Panel2.BackgroundImage"), System.Drawing.Image)
-        Me.Panel2.Location = New System.Drawing.Point(-2, 26)
+        Me.Panel2.Location = New System.Drawing.Point(-4, 50)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(102, 100)
+        Me.Panel2.Size = New System.Drawing.Size(204, 192)
         Me.Panel2.TabIndex = 19
         '
         'Button4
@@ -496,9 +531,10 @@ Partial Class Prd_detail
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
-        Me.Button4.Location = New System.Drawing.Point(487, 488)
+        Me.Button4.Location = New System.Drawing.Point(974, 938)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(147, 100)
+        Me.Button4.Size = New System.Drawing.Size(294, 192)
         Me.Button4.TabIndex = 18
         Me.Button4.UseVisualStyleBackColor = True
         '
@@ -509,9 +545,10 @@ Partial Class Prd_detail
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
-        Me.Button3.Location = New System.Drawing.Point(640, 488)
+        Me.Button3.Location = New System.Drawing.Point(1280, 938)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(147, 100)
+        Me.Button3.Size = New System.Drawing.Size(294, 192)
         Me.Button3.TabIndex = 17
         Me.Button3.UseVisualStyleBackColor = True
         '
@@ -519,9 +556,10 @@ Partial Class Prd_detail
         '
         Me.Panel4.Controls.Add(Me.Label17)
         Me.Panel4.Controls.Add(Me.PictureBox1)
-        Me.Panel4.Location = New System.Drawing.Point(-2, 513)
+        Me.Panel4.Location = New System.Drawing.Point(-4, 987)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(167, 81)
+        Me.Panel4.Size = New System.Drawing.Size(334, 156)
         Me.Panel4.TabIndex = 46
         '
         'Label17
@@ -529,9 +567,10 @@ Partial Class Prd_detail
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.ForeColor = System.Drawing.Color.White
-        Me.Label17.Location = New System.Drawing.Point(26, 80)
+        Me.Label17.Location = New System.Drawing.Point(52, 154)
+        Me.Label17.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(123, 24)
+        Me.Label17.Size = New System.Drawing.Size(253, 44)
         Me.Label17.TabIndex = 42
         Me.Label17.Text = "Scan Material"
         '
@@ -539,9 +578,10 @@ Partial Class Prd_detail
         '
         Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(24, 9)
+        Me.PictureBox1.Location = New System.Drawing.Point(48, 17)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(122, 69)
+        Me.PictureBox1.Size = New System.Drawing.Size(244, 133)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 41
         Me.PictureBox1.TabStop = False
@@ -551,9 +591,10 @@ Partial Class Prd_detail
         Me.QTY_NC.AutoSize = True
         Me.QTY_NC.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.QTY_NC.ForeColor = System.Drawing.Color.DarkOrange
-        Me.QTY_NC.Location = New System.Drawing.Point(231, 526)
+        Me.QTY_NC.Location = New System.Drawing.Point(462, 1012)
+        Me.QTY_NC.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.QTY_NC.Name = "QTY_NC"
-        Me.QTY_NC.Size = New System.Drawing.Size(137, 38)
+        Me.QTY_NC.Size = New System.Drawing.Size(272, 76)
         Me.QTY_NC.TabIndex = 47
         Me.QTY_NC.Text = "QTY_NC"
         Me.QTY_NC.Visible = False
@@ -563,9 +604,10 @@ Partial Class Prd_detail
         Me.QTY_NG.AutoSize = True
         Me.QTY_NG.Font = New System.Drawing.Font("Arial Black", 20.0!)
         Me.QTY_NG.ForeColor = System.Drawing.Color.DarkOrange
-        Me.QTY_NG.Location = New System.Drawing.Point(338, 550)
+        Me.QTY_NG.Location = New System.Drawing.Point(676, 1058)
+        Me.QTY_NG.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.QTY_NG.Name = "QTY_NG"
-        Me.QTY_NG.Size = New System.Drawing.Size(138, 38)
+        Me.QTY_NG.Size = New System.Drawing.Size(275, 76)
         Me.QTY_NG.TabIndex = 48
         Me.QTY_NG.Text = "QTY_NG"
         Me.QTY_NG.Visible = False
@@ -575,10 +617,10 @@ Partial Class Prd_detail
         '
         'Prd_detail
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(2, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(14, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(800, 600)
+        Me.ClientSize = New System.Drawing.Size(1600, 1154)
         Me.ControlBox = False
         Me.Controls.Add(Me.QTY_NG)
         Me.Controls.Add(Me.QTY_NC)
@@ -600,6 +642,7 @@ Partial Class Prd_detail
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label5)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.Name = "Prd_detail"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Prd_detail"

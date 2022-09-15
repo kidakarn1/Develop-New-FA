@@ -55,6 +55,7 @@ Partial Class List_Emp
         Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.Location = New System.Drawing.Point(216, 488)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(6)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(156, 100)
         Me.Button1.TabIndex = 1
@@ -68,6 +69,7 @@ Partial Class List_Emp
         Me.Button2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.Location = New System.Drawing.Point(641, 488)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(6)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(147, 100)
         Me.Button2.TabIndex = 2
@@ -87,6 +89,7 @@ Partial Class List_Emp
         Me.ListView1.FullRowSelect = True
         Me.ListView1.HideSelection = False
         Me.ListView1.Location = New System.Drawing.Point(11, 131)
+        Me.ListView1.Margin = New System.Windows.Forms.Padding(6)
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(776, 341)
         Me.ListView1.TabIndex = 3
@@ -114,6 +117,7 @@ Partial Class List_Emp
         Me.Button3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.Location = New System.Drawing.Point(425, 488)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(6)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(160, 100)
         Me.Button3.TabIndex = 4
@@ -126,6 +130,7 @@ Partial Class List_Emp
         Me.Label1.Font = New System.Drawing.Font("Arial Black", 25.0!)
         Me.Label1.ForeColor = System.Drawing.Color.Aqua
         Me.Label1.Location = New System.Drawing.Point(97, 76)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(323, 48)
         Me.Label1.TabIndex = 5
@@ -135,6 +140,7 @@ Partial Class List_Emp
         '
         Me.Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), System.Drawing.Image)
         Me.Panel1.Location = New System.Drawing.Point(-12, 19)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(6)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(111, 103)
         Me.Panel1.TabIndex = 6
@@ -147,6 +153,7 @@ Partial Class List_Emp
         Me.Button4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
         Me.Button4.Location = New System.Drawing.Point(12, 488)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(6)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(147, 100)
         Me.Button4.TabIndex = 7
@@ -159,7 +166,8 @@ Partial Class List_Emp
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial Black", 15.0!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(20, 36)
+        Me.Label2.Location = New System.Drawing.Point(17, 33)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(84, 28)
         Me.Label2.TabIndex = 0
@@ -171,7 +179,8 @@ Partial Class List_Emp
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(39, 63)
+        Me.Label3.Location = New System.Drawing.Point(38, 63)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(70, 23)
         Me.Label3.TabIndex = 1
@@ -183,6 +192,7 @@ Partial Class List_Emp
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Location = New System.Drawing.Point(643, 3)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(6)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(172, 122)
         Me.Panel2.TabIndex = 25
@@ -193,18 +203,20 @@ Partial Class List_Emp
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(465, 12)
+        Me.ListBox1.Location = New System.Drawing.Point(456, 196)
+        Me.ListBox1.Margin = New System.Windows.Forms.Padding(6)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(120, 95)
+        Me.ListBox1.Size = New System.Drawing.Size(236, 173)
         Me.ListBox1.TabIndex = 26
         Me.ListBox1.Visible = False
         '
         'ListBox2
         '
         Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.Location = New System.Drawing.Point(667, 377)
+        Me.ListBox2.Location = New System.Drawing.Point(540, 290)
+        Me.ListBox2.Margin = New System.Windows.Forms.Padding(6)
         Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(120, 95)
+        Me.ListBox2.Size = New System.Drawing.Size(236, 173)
         Me.ListBox2.TabIndex = 27
         Me.ListBox2.Visible = False
         '
@@ -212,7 +224,8 @@ Partial Class List_Emp
         '
         Me.lb_count_emp.AutoSize = True
         Me.lb_count_emp.BackColor = System.Drawing.Color.White
-        Me.lb_count_emp.Location = New System.Drawing.Point(774, 361)
+        Me.lb_count_emp.Location = New System.Drawing.Point(585, 401)
+        Me.lb_count_emp.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.lb_count_emp.Name = "lb_count_emp"
         Me.lb_count_emp.Size = New System.Drawing.Size(13, 13)
         Me.lb_count_emp.TabIndex = 28
@@ -223,7 +236,8 @@ Partial Class List_Emp
         '
         Me.flag_emp.AutoSize = True
         Me.flag_emp.BackColor = System.Drawing.Color.White
-        Me.flag_emp.Location = New System.Drawing.Point(755, 361)
+        Me.flag_emp.Location = New System.Drawing.Point(547, 401)
+        Me.flag_emp.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.flag_emp.Name = "flag_emp"
         Me.flag_emp.Size = New System.Drawing.Size(13, 13)
         Me.flag_emp.TabIndex = 29
@@ -234,7 +248,8 @@ Partial Class List_Emp
         '
         Me.lb_link.AutoSize = True
         Me.lb_link.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lb_link.Location = New System.Drawing.Point(748, 177)
+        Me.lb_link.Location = New System.Drawing.Point(533, 47)
+        Me.lb_link.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.lb_link.Name = "lb_link"
         Me.lb_link.Size = New System.Drawing.Size(37, 13)
         Me.lb_link.TabIndex = 30
@@ -262,6 +277,7 @@ Partial Class List_Emp
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "List_Emp"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ำ"

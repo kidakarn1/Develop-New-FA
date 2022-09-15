@@ -1,11 +1,11 @@
 Public Class Close_lot_cfm
 	Public act_by_seq As String = Working_Pro.LB_COUNTER_SEQ.Text
-	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-		con_close_lot()
-	End Sub
-	Public Sub con_close_lot()
-
-		If Working_Pro.check_in_up_seq > 0 Then
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        con_close_lot()
+    End Sub
+    Public Sub con_close_lot()
+        Working_Pro.manage_start()
+        If Working_Pro.check_in_up_seq > 0 Then
 			Dim line_id As String = MainFrm.line_id.Text
 			Try
 				If My.Computer.Network.Ping("192.168.161.101") Then

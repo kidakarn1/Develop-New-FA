@@ -94,8 +94,8 @@ Public Class tag_reprint_new
 		Dim DLV_DATE As String = "NO_DATA"
 		Dim WI As String = "NO_DATA"
 		Dim line_cd As String = MainFrm.Label4.Text
-		Dim check_tag_type = Backoffice_model.B_check_format_tag() ' api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_LINE_TYPE?line_cd=" & MainFrm.Label4.Text)
-		If check_tag_type = "0" Then
+        Dim check_tag_type = Backoffice_model.B_check_format_tag() ' api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_LINE_TYPE?line_cd=" & MainFrm.Label4.Text)
+        If check_tag_type = "0" Then
 			While next_process.read()
 				value_next_process = next_process("NEXT_PROCESS").ToString
 			End While
@@ -223,7 +223,7 @@ Public Class tag_reprint_new
 							DLV_DATE = result_date
 						End Try
 					Catch ex As Exception
-						MsgBox("error data = " & ex.Message)
+						MsgBox("2error data = " & ex.Message)
 					End Try
 					'MsgBox(lb_dlv_date.Text)
 					'Dim ssdate As String = lb_dlv_date.Text
@@ -411,8 +411,8 @@ Public Class tag_reprint_new
 					Dim box_no_new As String = qr_detailss.Substring(100, 3)
 					e.Graphics.DrawString("PRO SEQ", lb_font5.Font, Brushes.Black, 585, 98)
 					e.Graphics.DrawString(plan_seq_new, lb_font4_B.Font, Brushes.Black, 610, 115)
-					Dim load_data = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_DATA_WORKING?WI=" & WI)
-					Dim dict As Object = New JavaScriptSerializer().Deserialize(Of List(Of Object))(load_data)
+                    Dim load_data = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_DATA_WORKING?WI=" & WI)
+                    Dim dict As Object = New JavaScriptSerializer().Deserialize(Of List(Of Object))(load_data)
 					Dim plan_date As String = ""
 					For Each item As Object In dict
 						Dim da As Date = item("WORK_ODR_DLV_DATE").substring(0, 10)
@@ -499,8 +499,8 @@ Public Class tag_reprint_new
 						factory_cd = "Phase10"
 						plan_cd = "51"
 					End If
-					Dim id_tag = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_ID_PRINT_DETAIL_MAIN?qr_code=" & qr_detailss)
-					Dim qr_sub = Backoffice_model.get_qr_detail_sub(id_tag)
+                    Dim id_tag = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_ID_PRINT_DETAIL_MAIN?qr_code=" & qr_detailss)
+                    Dim qr_sub = Backoffice_model.get_qr_detail_sub(id_tag)
 					'For j = 1 To 5 Step 1
 					Dim j As Integer = 1
 					While qr_sub.read
@@ -526,7 +526,7 @@ Public Class tag_reprint_new
 					e.Graphics.DrawImage(bitmap_qr_box, 600, 205, 75, 75) 'Right top
 					Backoffice_model.update_data_new_qr_detail_main(qr_detailss)
 				Catch ex As Exception
-					MsgBox("error data =  " & ex.Message)
+					MsgBox("3error data =  " & ex.Message)
 				End Try
 			Else
 				Try
@@ -628,8 +628,8 @@ Public Class tag_reprint_new
 					Dim box_no_new As String = qr_detailss.Substring(100, 3)
 					e.Graphics.DrawString("PRO SEQ", lb_font5.Font, Brushes.Black, 585, 98)
 					e.Graphics.DrawString(plan_seq_new, lb_font4_B.Font, Brushes.Black, 610, 115)
-					Dim load_data = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_DATA_WORKING?WI=" & WI)
-					Dim dict As Object = New JavaScriptSerializer().Deserialize(Of List(Of Object))(load_data)
+                    Dim load_data = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_DATA_WORKING?WI=" & WI)
+                    Dim dict As Object = New JavaScriptSerializer().Deserialize(Of List(Of Object))(load_data)
 					Dim plan_date As String = ""
 					For Each item As Object In dict
 						Dim da As Date = item("WORK_ODR_DLV_DATE").substring(0, 10)
@@ -647,7 +647,7 @@ Public Class tag_reprint_new
 						Dim da As Date = Date.ParseExact(ListView1.Items(g_index).SubItems(1).Text.Substring(7, 8), "dd/MM/yy", CultureInfo.InvariantCulture)
 						result_date_act_date = da.ToString("dd/MM/yyyy")
 					Else
-						Dim da As Date = Date.ParseExact(ListView1.Items(g_index).SubItems(1).Text.Substring(0, 8), "dd/MM/yy", CultureInfo.InvariantCulture)
+						Dim da As Date = Date.ParseExact(ListView1.Items(g_index).SubItems(1).Text.Substring(0, 10), "yyyy-MM-dd", CultureInfo.InvariantCulture)
 						result_date_act_date = da.ToString("dd/MM/yyyy")
 					End If
 					e.Graphics.DrawString(result_date_act_date, lb_font4_B.Font, Brushes.Black, 470, 215)
@@ -730,7 +730,7 @@ Public Class tag_reprint_new
 					e.Graphics.DrawString("Phase10", lb_font3.Font, Brushes.Black, 33, 250)
 					e.Graphics.DrawImage(bitmap_qr_box, 600, 205, 75, 75) 'Right top
 				Catch ex As Exception
-					MsgBox("error data =  " & ex.Message)
+					MsgBox("1error data =  " & ex.Message)
 				End Try
 			End If
 		End If
