@@ -33,17 +33,21 @@ Public Class Working_Pro
 	Dim check_bull As Integer = 0
 	Public check_in_up_seq As Integer = 0
 	Dim value_next_process As String = ""
-	Public check_format_tag As String = Backoffice_model.B_check_format_tag()
-	Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-		Label44.Text = TimeOfDay.ToString("H:mm:ss")
-		Label43.Text = DateTime.Now.ToString("yyyy/MM/dd")
-		lb_loss_status.Text = lb_loss_status.Text
-		If lb_loss_status.Right < 0 Then
-			lb_loss_status.Left = Panel6.ClientSize.Width
-		Else
-			lb_loss_status.Left -= 10
-		End If
-	End Sub
+    Public check_format_tag As String = Backoffice_model.B_check_format_tag()
+    Public Shared api = New api()
+    Public Shared check_tag_type = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_LINE_TYPE?line_cd=" & MainFrm.Label4.Text)
+    Public Shared load_data = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_DATA_WORKING?WI=" & Prd_detail.lb_wi.Text)
+    Public Shared V_check_line_reprint As String = Backoffice_model.check_line_reprint()
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Label44.Text = TimeOfDay.ToString("H:mm:ss")
+        Label43.Text = DateTime.Now.ToString("yyyy/MM/dd")
+        lb_loss_status.Text = lb_loss_status.Text
+        If lb_loss_status.Right < 0 Then
+            lb_loss_status.Left = Panel6.ClientSize.Width
+        Else
+            lb_loss_status.Left -= 10
+        End If
+    End Sub
     Private Sub Working_Pro_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Wait_data.Close()
         'Prd_detail.Timer3.Enabled = False
@@ -51,7 +55,9 @@ Public Class Working_Pro
         Timer1.Start()
         'sc_prd_plan.SerialPort1.Close()
         lb_loss_status.Parent = Panel6
-
+        check_tag_type = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_LINE_TYPE?line_cd=" & MainFrm.Label4.Text)
+        load_data = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_DATA_WORKING?WI=" & Prd_detail.lb_wi.Text)
+        V_check_line_reprint = Backoffice_model.check_line_reprint()
         Dim next_process = Backoffice_model.GET_NEXT_PROCESS()
         Backoffice_model.S_chk_spec_line = Backoffice_model.chk_spec_line()
         While next_process.read()
@@ -608,7 +614,7 @@ Public Class Working_Pro
             textp_result = Math.Abs(textp_result) - 1
             'MsgBox(textp_result)
             If result_mod = 0 And textp_result <> 0 Then
-                If Backoffice_model.check_line_reprint() = "0" Then
+                If V_check_line_reprint = "0" Then
                     lb_box_count.Text = lb_box_count.Text + 1
                     Label_bach.Text = Label_bach.Text + 1
                     tag_print()
@@ -977,7 +983,7 @@ Public Class Working_Pro
                             End If
                         Else
                             If result_mod = 0 And textp_result <> 0 Then
-                                If Backoffice_model.check_line_reprint() = "0" Then
+                                If V_check_line_reprint = "0" Then
                                     lb_box_count.Text = lb_box_count.Text + 1
                                     Label_bach.Text = Label_bach.Text + 1
                                     tag_print()
@@ -1284,7 +1290,7 @@ Public Class Working_Pro
         Dim result_snp As Integer = CDbl(Val(Label6.Text)) Mod CDbl(Val(Label27.Text))
         Dim status_tag As String = "[ Incomplete Tag ]"
         'MsgBox("result_snp = " & result_snp)
-        If Backoffice_model.check_line_reprint() = "0" Then
+        If V_check_line_reprint = "0" Then
             If result_snp = "0" Then
                 result_snp = Label27.Text
                 status_tag = " "
@@ -1473,10 +1479,7 @@ Public Class Working_Pro
         lb_qty_for_box.Text = "0"
     End Sub
     Public Shared Function tag_print()
-        Dim api = New api()
-        Dim check_tag_type = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_LINE_TYPE?line_cd=" & MainFrm.Label4.Text)
         If check_tag_type = "1" Then
-
             Working_Pro.PrintDocument1.Print()
         ElseIf check_tag_type = "2" Then
             Backoffice_model.flg_cat_layout_line = "2"
@@ -1619,9 +1622,9 @@ Public Class Working_Pro
 		Else
 			value_label6 += 1
 		End If
-		Dim flg_reprint As String = Backoffice_model.check_line_reprint()
+        Dim flg_reprint As String = V_check_line_reprint
 
-		For index_check_print As Integer = value_label6 To result_add   '10
+        For index_check_print As Integer = value_label6 To result_add   '10
 
 			Label6.Text = index_check_print
 			'For index_check As Integer = 1 To loop_check
@@ -1663,21 +1666,21 @@ Public Class Working_Pro
 		Dim add_value_loop As Integer = 0
 		Dim result_add As Integer = CDbl(Val(lb_ins_qty.Text)) + CDbl(Val(Label6.Text))
 		Dim loop_check As Integer = result_add / CDbl(Val(Label27.Text))
-		If Backoffice_model.check_line_reprint() = "1" Then
-			If CDbl(Val(Label27.Text)) = 1 Or CDbl(Val(Label27.Text)) = 999999 Then
-				If (CDbl(Val(Label6.Text) + CDbl(Val(lb_ins_qty.Text)))) = CDbl(Val(Label8.Text)) Then
-					Label6.Text = result_add
-					lb_box_count.Text = lb_box_count.Text + 1
-					Label_bach.Text = Label_bach.Text + 1
-					tag_print()
-				Else
-					Label6.Text = result_add
-				End If
-			Else
-				manage_print()
-			End If
-		Else
-			manage_print()
+        If V_check_line_reprint = "1" Then
+            If CDbl(Val(Label27.Text)) = 1 Or CDbl(Val(Label27.Text)) = 999999 Then
+                If (CDbl(Val(Label6.Text) + CDbl(Val(lb_ins_qty.Text)))) = CDbl(Val(Label8.Text)) Then
+                    Label6.Text = result_add
+                    lb_box_count.Text = lb_box_count.Text + 1
+                    Label_bach.Text = Label_bach.Text + 1
+                    tag_print()
+                Else
+                    Label6.Text = result_add
+                End If
+            Else
+                manage_print()
+            End If
+        Else
+            manage_print()
 		End If
 		Dim pd As String = MainFrm.Label6.Text
 		Dim line_cd As String = MainFrm.Label4.Text
@@ -1853,12 +1856,12 @@ Public Class Working_Pro
 				Label6.Text = sum_act_total
 				If result_mod = 0 And textp_result <> 0 Then
 
-					If Backoffice_model.check_line_reprint() = "0" Then
-						lb_box_count.Text = lb_box_count.Text + 1
-						Label_bach.Text = Label_bach.Text + 1
-						tag_print()
-					Else
-						If CDbl(Val(Label27.Text)) = 1 Or CDbl(Val(Label27.Text)) = 999999 Then
+                    If V_check_line_reprint = "0" Then
+                        lb_box_count.Text = lb_box_count.Text + 1
+                        Label_bach.Text = Label_bach.Text + 1
+                        tag_print()
+                    Else
+                        If CDbl(Val(Label27.Text)) = 1 Or CDbl(Val(Label27.Text)) = 999999 Then
 						Else
 							lb_box_count.Text = lb_box_count.Text + 1
 							Label_bach.Text = Label_bach.Text + 1
@@ -2101,12 +2104,12 @@ Public Class Working_Pro
 	End Sub
 	Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
 		delay_btn += 1
-		If delay_btn = 30 Then
-			check_bull = 0
-			delay_btn = 0
-			Timer3.Enabled = False
-		Else
-			check_bull = 1
+        If delay_btn = 27 Then
+            check_bull = 0
+            delay_btn = 0
+            Timer3.Enabled = False
+        Else
+            check_bull = 1
 		End If
 	End Sub
 
