@@ -681,9 +681,8 @@ re_up_date_data:
 			SQLConn.ConnectionString = sqlConnect 'Set the Connection String  
 			SQLConn.Open()
 			SQLCmd.Connection = SQLConn
-			SQLCmd.CommandText = "EXEC [dbo].[GET_QTY_DESC_ACTUAl] @WI = '" & WI & "' , @ship = '" & ship & "' , @SEQ='" & SEQ & "'"
-			MsgBox(SQLCmd.CommandText)
-			reader = SQLCmd.ExecuteReader()
+            SQLCmd.CommandText = "EXEC [dbo].[GET_QTY_DESC_ACTUAl] @WI = '" & WI & "' , @ship = '" & ship & "' , @SEQ='" & SEQ & "'"
+            reader = SQLCmd.ExecuteReader()
 			Return reader
 		Catch ex As Exception
 			MsgBox("MSSQL Database connect failed. Please contact PC System [Function GET_QTY_SEQ_ACTUAL_DESC]")
@@ -779,8 +778,8 @@ where
 			End While
 			reader.Close()
 			Dim api = New api()
-			Dim result_update_count_pro = api.Load_data("http://192.168.161.207/API_NEW_FA/UPDATE_DATA/UPDATE_PRINT_test_system?ID=" & id & "&PRINT_COUNT=" & print_count)
-			Dim table_created As Integer = 2
+            Dim result_update_count_pro = api.Load_data("http://192.168.161.207/API_NEW_FA/UPDATE_DATA/UPDATE_PRINT?ID=" & id & "&PRINT_COUNT=" & print_count)
+            Dim table_created As Integer = 2
 			If flg_cat_layout_line = "1" Then
 				table_created = 2
 			ElseIf flg_cat_layout_line = "2" Then
@@ -863,67 +862,67 @@ where
 			SQLConn.Open()
 			SQLCmd.Connection = SQLConn
 			Dim api = New api()
-			Dim result_api_checkper = api.Load_data("http://192.168.161.207/API_NEW_FA/Api_Get_plan_production_test_system?line_cd=" & GET_LINE_PRODUCTION())
-			'SQLCmd.CommandText = "SELECT DISTINCT
-			'                       cp.WI,
-			'                       cp.PD,
-			'                       cp.LINE_CD,
-			'                       cp.ITEM_CD,
-			'                       cp.ITEM_NAME,
-			'                       cp.MODEL,
-			'                       cp.PLAN_QTY AS PLAN_QTY,
-			'                       ISNULL(pa.prd_qty, 0) AS prd_qty_sum,
-			'                       cp.PLAN_DATE AS WORK_ODR_DLV_DATE,
-			'                       sup.WORK_ODR_DLV_DATE AS ORIGINAL_PLAN,
-			'                       sup.PS_UNIT_NUMERATOR,
-			'                       sup.CT,
-			'                       sup.WORK_ODR_DLV_DATE,
-			'                       sup.LOCATION_PART,
-			'                       sup.MODEL,
-			'                       sup.PRODUCT_TYP,
-			'                       ISNULL(ppap.seq_no, 0) AS seq_no,
-			'                       cp.PLAN_ORDER,
-			'                  (select SUM(abs(qty)) from production_defect_detail where flg_defact = '1' and wi_plan = sup.WI and line_cd = '" & line_cd & "') as QTY_NC,
-			'                 (select SUM(abs(qty)) from production_defect_detail where flg_defact = '2' and wi_plan = sup.WI and line_cd = '" & line_cd & "') as QTY_NG
-			'                 FROM
-			'                     confirm_production_plan AS cp
-			'                 LEFT JOIN (
-			'Select Case Case
-			'                           wi_plan,
-			'                          SUM (qty) AS prd_qty
-			'                      FROM
-			'                          production_actual_detail
-			'                      WHERE
-			'                          line_cd = '" & line_cd & "'
-			'                      AND updated_date > DATEADD(MONTH, - 1, GETDATE())
-			'                      GROUP BY
-			'                          wi_plan
-			'                  ) AS pa ON cp.WI = pa.wi_plan
-			'                 LEFT JOIN production_actual AS ppap ON cp.WI = ppap.WI
-			'                 LEFT JOIN sup_work_plan_supply_dev AS sup ON cp.WI = sup.WI
-			'                  LEFT JOIN production_defect_detail AS cd ON cd.wi_plan = sup.WI
-			'                  WHERE
-			'                      cp.LINE_CD = '" & line_cd & "'
-			'                 AND SUP.LVL = '1'
-			'                 AND (
-			'                     sup.PRD_COMP_FLG IS NULL
-			'                     OR sup.PRD_COMP_FLG = '0'
-			'                 )
-			'                 AND (
-			'                     ppap.del_flg IS NULL
-			'                     OR ppap.del_flg = '0'
-			'                 )
-			'                AND (
-			'                    ppap.comp_flg IS NULL
-			'                    OR ppap.comp_flg = '0'
-			'                ) -- AND CONVERT ( DATE, cp.PLAN_DATE ) = CONVERT ( DATE, GETDATE( ) )
-			'                AND CONVERT (DATE, cp.PLAN_DATE) BETWEEN (CONVERT(DATE, GETDATE() - 30))
-			'                AND (CONVERT(DATE, GETDATE()))
-			'	ORDER BY
-			'	cp.PLAN_ORDER ASC"
-			'reader = SQLCmd.ExecuteReader()
-			'			'MsgBox(reader)
-			Return result_api_checkper
+            Dim result_api_checkper = api.Load_data("http://192.168.161.207/API_NEW_FA/Api_Get_plan_production?line_cd=" & GET_LINE_PRODUCTION())
+            'SQLCmd.CommandText = "SELECT DISTINCT
+            '                       cp.WI,
+            '                       cp.PD,
+            '                       cp.LINE_CD,
+            '                       cp.ITEM_CD,
+            '                       cp.ITEM_NAME,
+            '                       cp.MODEL,
+            '                       cp.PLAN_QTY AS PLAN_QTY,
+            '                       ISNULL(pa.prd_qty, 0) AS prd_qty_sum,
+            '                       cp.PLAN_DATE AS WORK_ODR_DLV_DATE,
+            '                       sup.WORK_ODR_DLV_DATE AS ORIGINAL_PLAN,
+            '                       sup.PS_UNIT_NUMERATOR,
+            '                       sup.CT,
+            '                       sup.WORK_ODR_DLV_DATE,
+            '                       sup.LOCATION_PART,
+            '                       sup.MODEL,
+            '                       sup.PRODUCT_TYP,
+            '                       ISNULL(ppap.seq_no, 0) AS seq_no,
+            '                       cp.PLAN_ORDER,
+            '                  (select SUM(abs(qty)) from production_defect_detail where flg_defact = '1' and wi_plan = sup.WI and line_cd = '" & line_cd & "') as QTY_NC,
+            '                 (select SUM(abs(qty)) from production_defect_detail where flg_defact = '2' and wi_plan = sup.WI and line_cd = '" & line_cd & "') as QTY_NG
+            '                 FROM
+            '                     confirm_production_plan AS cp
+            '                 LEFT JOIN (
+            'Select Case Case
+            '                           wi_plan,
+            '                          SUM (qty) AS prd_qty
+            '                      FROM
+            '                          production_actual_detail
+            '                      WHERE
+            '                          line_cd = '" & line_cd & "'
+            '                      AND updated_date > DATEADD(MONTH, - 1, GETDATE())
+            '                      GROUP BY
+            '                          wi_plan
+            '                  ) AS pa ON cp.WI = pa.wi_plan
+            '                 LEFT JOIN production_actual AS ppap ON cp.WI = ppap.WI
+            '                 LEFT JOIN sup_work_plan_supply_dev AS sup ON cp.WI = sup.WI
+            '                  LEFT JOIN production_defect_detail AS cd ON cd.wi_plan = sup.WI
+            '                  WHERE
+            '                      cp.LINE_CD = '" & line_cd & "'
+            '                 AND SUP.LVL = '1'
+            '                 AND (
+            '                     sup.PRD_COMP_FLG IS NULL
+            '                     OR sup.PRD_COMP_FLG = '0'
+            '                 )
+            '                 AND (
+            '                     ppap.del_flg IS NULL
+            '                     OR ppap.del_flg = '0'
+            '                 )
+            '                AND (
+            '                    ppap.comp_flg IS NULL
+            '                    OR ppap.comp_flg = '0'
+            '                ) -- AND CONVERT ( DATE, cp.PLAN_DATE ) = CONVERT ( DATE, GETDATE( ) )
+            '                AND CONVERT (DATE, cp.PLAN_DATE) BETWEEN (CONVERT(DATE, GETDATE() - 30))
+            '                AND (CONVERT(DATE, GETDATE()))
+            '	ORDER BY
+            '	cp.PLAN_ORDER ASC"
+            'reader = SQLCmd.ExecuteReader()
+            '			'MsgBox(reader)
+            Return result_api_checkper
 		Catch ex As Exception
 			MsgBox("MSSQL Database connect failed. Please contact PC System [Function Get_prd_plan_new]")
 			SQLConn.Close()
