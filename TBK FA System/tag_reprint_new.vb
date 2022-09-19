@@ -223,7 +223,7 @@ Public Class tag_reprint_new
                             DLV_DATE = result_date
                         End Try
                     Catch ex As Exception
-                        MsgBox("error data = " & ex.Message)
+                        MsgBox("error data1 = " & ex.Message)
                     End Try
                     'MsgBox(lb_dlv_date.Text)
                     'Dim ssdate As String = lb_dlv_date.Text
@@ -526,7 +526,7 @@ Public Class tag_reprint_new
                     e.Graphics.DrawImage(bitmap_qr_box, 600, 205, 75, 75) 'Right top
                     Backoffice_model.update_data_new_qr_detail_main(qr_detailss)
                 Catch ex As Exception
-                    MsgBox("error data =  " & ex.Message)
+                    MsgBox("error data2 =  " & ex.Message)
                 End Try
             Else
                 Try
@@ -647,7 +647,7 @@ Public Class tag_reprint_new
                         Dim da As Date = Date.ParseExact(ListView1.Items(g_index).SubItems(1).Text.Substring(7, 8), "dd/MM/yy", CultureInfo.InvariantCulture)
                         result_date_act_date = da.ToString("dd/MM/yyyy")
                     Else
-                        Dim da As Date = Date.ParseExact(ListView1.Items(g_index).SubItems(1).Text.Substring(0, 8), "dd/MM/yy", CultureInfo.InvariantCulture)
+                        Dim da As Date = Date.ParseExact(ListView1.Items(g_index).SubItems(1).Text.Substring(0, 10), "yyyy-MM-dd", CultureInfo.InvariantCulture)
                         result_date_act_date = da.ToString("dd/MM/yyyy")
                     End If
                     e.Graphics.DrawString(result_date_act_date, lb_font4_B.Font, Brushes.Black, 470, 215)
@@ -730,7 +730,7 @@ Public Class tag_reprint_new
                     e.Graphics.DrawString("Phase10", lb_font3.Font, Brushes.Black, 33, 250)
                     e.Graphics.DrawImage(bitmap_qr_box, 600, 205, 75, 75) 'Right top
                 Catch ex As Exception
-                    MsgBox("error data =  " & ex.Message)
+                    MsgBox("error data3 =  " & ex.Message)
                 End Try
             End If
 		End If
