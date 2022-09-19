@@ -58,7 +58,6 @@ Public Class Working_Pro
 			value_next_process = next_process("NEXT_PROCESS").ToString
 		End While
 		next_process.Close()
-		check_format_tag = Backoffice_model.B_check_format_tag()
 		lb_loss_status.Location = New Point(Panel6.ClientSize.Width,
 		Panel6.ClientSize.Height / 2 - (lb_loss_status.Height / 2))
 		Check(0) = _Check_0
@@ -288,124 +287,46 @@ Public Class Working_Pro
 	Private Sub CircularProgressBar1_Click(sender As Object, e As EventArgs) Handles CircularProgressBar1.Click
 
 	End Sub
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btn_back.Click
-        Dim line_id As String = MainFrm.line_id.Text
-        Backoffice_model.line_status_upd(line_id)
-        Prd_detail.Enabled = True
-        Prd_detail.Timer3.Enabled = True
-        Insert_list.ListView1.View = View.Details
-        Dim line_cd As String = MainFrm.Label4.Text
-        Dim LoadSQL = Backoffice_model.get_prd_plan(line_cd)
-        Dim numberOfindex As Integer = 0
-        While LoadSQL.Read()
-            'MsgBox(LoadSQL("prd_flg").ToString())
-            If LoadSQL("prd_flg").ToString() = 1 Then
-                'MsgBox("Red")
-                Insert_list.ListView1.ForeColor = Color.Red
-                Insert_list.ListView1.Items.Add(LoadSQL("WI").ToString()).SubItems.AddRange(New String() {LoadSQL("ITEM_CD").ToString(), LoadSQL("ITEM_NAME").ToString(), LoadSQL("QTY").ToString(), LoadSQL("remain_qty").ToString()})
-                Insert_list.ListView1.Items(numberOfindex).ForeColor = Color.Red
-            Else
-                'MsgBox("Blue")
-                Insert_list.ListView1.ForeColor = Color.Blue
-                Insert_list.ListView1.Items.Add(LoadSQL("WI").ToString()).SubItems.AddRange(New String() {LoadSQL("ITEM_CD").ToString(), LoadSQL("ITEM_NAME").ToString(), LoadSQL("QTY").ToString(), LoadSQL("remain_qty").ToString()})
-                Insert_list.ListView1.Items(numberOfindex).ForeColor = Color.Blue
-            End If
-            Insert_list.ListBox1.Items.Add(LoadSQL("PS_UNIT_NUMERATOR"))
-            Insert_list.ListBox2.Items.Add(LoadSQL("CT"))
-            Insert_list.ListBox3.Items.Add(LoadSQL("seq_count"))
-            Insert_list.lbx_dlv_date.Items.Add(LoadSQL("DLV_DATE"))
-            Insert_list.lbx_location.Items.Add(LoadSQL("LOCATION_PART"))
-            Insert_list.lbx_model.Items.Add(LoadSQL("MODEL"))
-            Insert_list.lbx_prd_type.Items.Add(LoadSQL("PRODUCT_TYP"))
-            numberOfindex = numberOfindex + 1
-            'Insert_list.ListView1.ForeColor = Color.Red
-            'Insert_list.ListView1.Items.Add(LoadSQL("WI").ToString()).SubItems.AddRange(New String() {LoadSQL("ITEM_CD").ToString(), LoadSQL("ITEM_NAME").ToString(), LoadSQL("QTY").ToString(), LoadSQL("remain_qty").ToString()})
-            'line_id.Text = LoadSQL("line_id").ToString()
-        End While
-        'Insert_list.Show()
-        Prd_detail.Show()
-        Me.Close()
-    End Sub
-    Public Sub manage_start()
-        Dim st_counter As String = Label32.Text
-        If st_counter = "0" Then
-            Label16.Text = TimeOfDay.ToString("H : mm")
-            Label32.Text = "1"
-            btn_back.Enabled = False
-            If lb_ch_man_flg.Text = "1" Then
-                Dim value_temps1 As Double
-                value_temps1 = Double.TryParse(Label34.Text, value_temps1)
-                Dim testt1 As Integer = Label34.Text
-                Dim newDate1 As Date = DateAdd("n", testt1, Now)
-                Label20.Text = newDate1.ToString("H : mm")
-            End If
-            Dim pd As String = MainFrm.Label6.Text
-            Dim line_cd As String = MainFrm.Label4.Text
-            Dim wi_plan As String = wi_no.Text
-            Dim item_cd As String = Label3.Text
-            Dim item_name As String = Label12.Text
-            Dim staff_no As String = Label29.Text
-            Dim seq_no As String = Label22.Text
-            Dim prd_qty As Integer = 0
-            Dim start_time As Date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)
-            Dim end_time As Date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)
-            Dim use_time As Double = 0.00
-            Dim tr_status As String = "0"
-            Dim number_qty As Integer = Label6.Text
-            Dim start_time2 As String = start_time.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)
-            Dim end_time2 As String = end_time.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)
-            Try
-                If My.Computer.Network.Ping("192.168.161.101") Then
-                    tr_status = "1"
-                    Backoffice_model.insPrdDetail_sqlite(pd, line_cd, wi_plan, item_cd, item_name, staff_no, seq_no, prd_qty, number_qty, start_time2, end_time2, use_time, tr_status)
-                    Backoffice_model.Insert_prd_detail(pd, line_cd, wi_plan, item_cd, item_name, staff_no, seq_no, prd_qty, start_time, end_time, use_time, number_qty)
-                    'MsgBox("Ping completed")
-                Else
-                    tr_status = "0"
-                    Backoffice_model.insPrdDetail_sqlite(pd, line_cd, wi_plan, item_cd, item_name, staff_no, seq_no, prd_qty, number_qty, start_time2, end_time2, use_time, tr_status)
-                    'MsgBox("Ping incompleted")
-                End If
-            Catch ex As Exception
-                tr_status = "0"
-                Backoffice_model.insPrdDetail_sqlite(pd, line_cd, wi_plan, item_cd, item_name, staff_no, seq_no, prd_qty, number_qty, start_time2, end_time2, use_time, tr_status)
-            End Try
-            st_time.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-            st_count_ct.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-            btn_setup.Enabled = True
-            btn_ins_act.Enabled = True
-            btn_desc_act.Enabled = True
-            btn_defect.Enabled = True
-            btn_closelot.Enabled = True
-            'Dim temppo As Double = Label34.Text
-            CircularProgressBar2.Text = 0 & "%"
-            CircularProgressBar2.Value = 0
+	Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btn_back.Click
+		Dim line_id As String = MainFrm.line_id.Text
+		Backoffice_model.line_status_upd(line_id)
+		Prd_detail.Enabled = True
+		Prd_detail.Timer3.Enabled = True
+		Insert_list.ListView1.View = View.Details
+		Dim line_cd As String = MainFrm.Label4.Text
+		Dim LoadSQL = Backoffice_model.get_prd_plan(line_cd)
+		Dim numberOfindex As Integer = 0
+		While LoadSQL.Read()
+			'MsgBox(LoadSQL("prd_flg").ToString())
+			If LoadSQL("prd_flg").ToString() = 1 Then
+				'MsgBox("Red")
+				Insert_list.ListView1.ForeColor = Color.Red
+				Insert_list.ListView1.Items.Add(LoadSQL("WI").ToString()).SubItems.AddRange(New String() {LoadSQL("ITEM_CD").ToString(), LoadSQL("ITEM_NAME").ToString(), LoadSQL("QTY").ToString(), LoadSQL("remain_qty").ToString()})
+				Insert_list.ListView1.Items(numberOfindex).ForeColor = Color.Red
+			Else
+				'MsgBox("Blue")
+				Insert_list.ListView1.ForeColor = Color.Blue
+				Insert_list.ListView1.Items.Add(LoadSQL("WI").ToString()).SubItems.AddRange(New String() {LoadSQL("ITEM_CD").ToString(), LoadSQL("ITEM_NAME").ToString(), LoadSQL("QTY").ToString(), LoadSQL("remain_qty").ToString()})
+				Insert_list.ListView1.Items(numberOfindex).ForeColor = Color.Blue
+			End If
+			Insert_list.ListBox1.Items.Add(LoadSQL("PS_UNIT_NUMERATOR"))
+			Insert_list.ListBox2.Items.Add(LoadSQL("CT"))
+			Insert_list.ListBox3.Items.Add(LoadSQL("seq_count"))
+			Insert_list.lbx_dlv_date.Items.Add(LoadSQL("DLV_DATE"))
+			Insert_list.lbx_location.Items.Add(LoadSQL("LOCATION_PART"))
+			Insert_list.lbx_model.Items.Add(LoadSQL("MODEL"))
+			Insert_list.lbx_prd_type.Items.Add(LoadSQL("PRODUCT_TYP"))
+			numberOfindex = numberOfindex + 1
+			'Insert_list.ListView1.ForeColor = Color.Red
+			'Insert_list.ListView1.Items.Add(LoadSQL("WI").ToString()).SubItems.AddRange(New String() {LoadSQL("ITEM_CD").ToString(), LoadSQL("ITEM_NAME").ToString(), LoadSQL("QTY").ToString(), LoadSQL("remain_qty").ToString()})
+			'line_id.Text = LoadSQL("line_id").ToString()
+		End While
+		'Insert_list.Show()
+		Prd_detail.Show()
+		Me.Close()
+	End Sub
 
-            Dim value_temps As Double
-
-            value_temps = Double.TryParse(Label34.Text, value_temps)
-
-            Dim testt As Integer = Label34.Text
-
-            Dim newDate As Date = DateAdd("n", testt, Now)
-            Label20.Text = newDate.ToString("H : mm")
-            'MsgBox(Label20.Text)
-        Else
-            'Label32.Text = "0"
-        End If
-        Panel1.BackColor = Color.Green
-        Label30.Text = "NORMAL"
-        btn_start.Visible = False
-        btn_back.Visible = False
-        btn_setup.Visible = False
-        btn_ins_act.Visible = False
-        btn_desc_act.Visible = False
-        btn_defect.Visible = False
-        btn_closelot.Visible = False
-        btn_stop.Visible = True
-        Prd_detail.Timer3.Enabled = False
-    End Sub
-
-    Private Sub btn_start_Click(sender As Object, e As EventArgs) Handles btn_start.Click
+	Private Sub btn_start_Click(sender As Object, e As EventArgs) Handles btn_start.Click
 		If check_network_frist = 0 Then
 			Try
 				If My.Computer.Network.Ping("192.168.161.101") Then
@@ -477,9 +398,87 @@ Public Class Working_Pro
 		End If
 
 		start_flg = 1
-        manage_start()
-        'Button1.Visible = True
-    End Sub
+
+		'Button1.Visible = True
+
+		Dim st_counter As String = Label32.Text
+
+		If st_counter = "0" Then
+			Label16.Text = TimeOfDay.ToString("H : mm")
+			Label32.Text = "1"
+			btn_back.Enabled = False
+			If lb_ch_man_flg.Text = "1" Then
+				Dim value_temps1 As Double
+				value_temps1 = Double.TryParse(Label34.Text, value_temps1)
+				Dim testt1 As Integer = Label34.Text
+				Dim newDate1 As Date = DateAdd("n", testt1, Now)
+				Label20.Text = newDate1.ToString("H : mm")
+			End If
+			Dim pd As String = MainFrm.Label6.Text
+			Dim line_cd As String = MainFrm.Label4.Text
+			Dim wi_plan As String = wi_no.Text
+			Dim item_cd As String = Label3.Text
+			Dim item_name As String = Label12.Text
+			Dim staff_no As String = Label29.Text
+			Dim seq_no As String = Label22.Text
+			Dim prd_qty As Integer = 0
+			Dim start_time As Date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)
+			Dim end_time As Date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)
+			Dim use_time As Double = 0.00
+			Dim tr_status As String = "0"
+			Dim number_qty As Integer = Label6.Text
+			Dim start_time2 As String = start_time.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)
+			Dim end_time2 As String = end_time.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)
+			Try
+				If My.Computer.Network.Ping("192.168.161.101") Then
+					tr_status = "1"
+					Backoffice_model.insPrdDetail_sqlite(pd, line_cd, wi_plan, item_cd, item_name, staff_no, seq_no, prd_qty, number_qty, start_time2, end_time2, use_time, tr_status)
+					Backoffice_model.Insert_prd_detail(pd, line_cd, wi_plan, item_cd, item_name, staff_no, seq_no, prd_qty, start_time, end_time, use_time, number_qty)
+					'MsgBox("Ping completed")
+				Else
+					tr_status = "0"
+					Backoffice_model.insPrdDetail_sqlite(pd, line_cd, wi_plan, item_cd, item_name, staff_no, seq_no, prd_qty, number_qty, start_time2, end_time2, use_time, tr_status)
+					'MsgBox("Ping incompleted")
+				End If
+			Catch ex As Exception
+				tr_status = "0"
+				Backoffice_model.insPrdDetail_sqlite(pd, line_cd, wi_plan, item_cd, item_name, staff_no, seq_no, prd_qty, number_qty, start_time2, end_time2, use_time, tr_status)
+			End Try
+			st_time.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+			st_count_ct.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+			btn_setup.Enabled = True
+			btn_ins_act.Enabled = True
+			btn_desc_act.Enabled = True
+			btn_defect.Enabled = True
+			btn_closelot.Enabled = True
+			'Dim temppo As Double = Label34.Text
+			CircularProgressBar2.Text = 0 & "%"
+			CircularProgressBar2.Value = 0
+
+			Dim value_temps As Double
+
+			value_temps = Double.TryParse(Label34.Text, value_temps)
+
+			Dim testt As Integer = Label34.Text
+
+			Dim newDate As Date = DateAdd("n", testt, Now)
+			Label20.Text = newDate.ToString("H : mm")
+			'MsgBox(Label20.Text)
+		Else
+			'Label32.Text = "0"
+		End If
+		Panel1.BackColor = Color.Green
+		Label30.Text = "NORMAL"
+		btn_start.Visible = False
+		btn_back.Visible = False
+		btn_setup.Visible = False
+		btn_ins_act.Visible = False
+		btn_desc_act.Visible = False
+		btn_defect.Visible = False
+		btn_closelot.Visible = False
+		btn_stop.Visible = True
+		Prd_detail.Timer3.Enabled = False
+	End Sub
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 		Dim yearNow As Integer = DateTime.Now.ToString("yyyy")
 		Dim monthNow As Integer = DateTime.Now.ToString("MM")
@@ -1386,32 +1385,19 @@ Public Class Working_Pro
 		'lb_box_count.Text = lb_box_count.Text + 1
 		lb_qty_for_box.Text = "0"
 	End Sub
-    Public Shared Function tag_print()
-        Dim api = New api()
-        Dim check_tag_type = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_LINE_TYPE?line_cd=" & MainFrm.Label4.Text)
-        If check_tag_type = "1" Then
+	Public Shared Function tag_print()
+		Dim api = New api()
+		Dim check_tag_type = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_LINE_TYPE?line_cd=" & MainFrm.Label4.Text)
+		If check_tag_type = "1" Then
 
-            Working_Pro.PrintDocument1.Print()
-        ElseIf check_tag_type = "2" Then
-            Backoffice_model.flg_cat_layout_line = "2"
-            print_back.print()
-        End If
-    End Function
-    Public Sub check_act_seq()
-        If CDbl(Val(LB_COUNTER_SEQ.Text)) <> 0 Then
-            Dim result_mod As Integer = CDbl(Val(Label6.Text)) Mod CDbl(Val(Label27.Text))
-            If result_mod <> 0 Then
-                Label_bach.Text += 1
-                lb_box_count.Text = lb_box_count.Text + 1
-                'MsgBox("box= " & lb_box_count.Text)
-                tag_print()
-                lb_box_count.Text = 0
-                Label_bach.Text = 0
-            End If
-        End If
-    End Sub
+			Working_Pro.PrintDocument1.Print()
+		ElseIf check_tag_type = "2" Then
+			Backoffice_model.flg_cat_layout_line = "2"
+			print_back.print()
+		End If
+	End Function
 
-    Public Shared Function tag_print_incomplete()
+	Public Shared Function tag_print_incomplete()
 		Working_Pro.PrintDocument2.Print()
 	End Function
 

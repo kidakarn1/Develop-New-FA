@@ -516,14 +516,13 @@ Public Class List_Emp
 				Catch ex As Exception
 
 				End Try
-                'Working_Pro.Label22.Text = "0" + seq_no 'Working_Pro.Label22.Text
-                If Len(seq_no) = "1" Then
-                    seq_no = "0" & seq_no
-                ElseIf Len(seq_no) = "2" Then
-                    seq_no = "0" & seq_no
-                End If
-                Working_Pro.check_act_seq()
-                Working_Pro.Label22.Text = seq_no 'Working_Pro.Label22.Text
+				'Working_Pro.Label22.Text = "0" + seq_no 'Working_Pro.Label22.Text
+				If Len(seq_no) = "1" Then
+					seq_no = "0" & seq_no
+				ElseIf Len(seq_no) = "2" Then
+					seq_no = "0" & seq_no
+				End If
+				Working_Pro.Label22.Text = seq_no 'Working_Pro.Label22.Text
 				Working_Pro.Label29.Text = Prd_detail.Label2.Text
 				Working_Pro.Label16.Text = TimeOfDay.ToString("H : mm")
 				Working_Pro.Label32.Text = "0"
@@ -546,9 +545,8 @@ Public Class List_Emp
 				Working_Pro.lb_ch_man_flg.Text = "1"
 				Working_Pro.Label20.Text = " -- : --"
 				Working_Pro.Enabled = True
-                'MainFrm.menu1.Enabled = True
-
-                Backoffice_model.Check_detail_actual_insert_act_no_api() 'ทำให้ช้า'
+				'MainFrm.menu1.Enabled = True
+				Backoffice_model.Check_detail_actual_insert_act_no_api() 'ทำให้ช้า'
 				Working_Pro.Show()
 				Me.Hide()
 			End If
@@ -584,9 +582,9 @@ Public Class List_Emp
 				End If
 			Next
 		End If
-        'MsgBox(temp2)
-        lb_count_emp.Text = ListView1.Items.Count
-        MainFrm.Enabled = True
+		'MsgBox(temp2)
+		lb_count_emp.Text = ListView1.Items.Count
+		MainFrm.Enabled = True
 		MainFrm.Show()
 		Me.Hide()
 	End Sub
