@@ -381,31 +381,31 @@ Public Class ins_qty_special_time
 					Dim now_time As Date = DateTime.Now.ToString("H:m:s")
 					Dim end_check_date_paralell_line As String = ""
 					Dim start_check_date_paralell_line As String = ""
-					If TextBox1.Text < TextBox2.Text Then
-						If TextBox2.Text >= "00:00" And TextBox2.Text <= "07:59" Then
-							Dim date_cerrunt As Date = DateTime.Now.ToString("yyyy-MM-dd")
-							Dim result_date_end As Date = date_cerrunt.AddDays(1) & " " & TextBox2.Text
-							end_check_date_paralell_line = result_date_end.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)
-						Else
-							end_check_date_paralell_line = end_time
-						End If
-						If TextBox1.Text >= "00:00" And TextBox1.Text <= "07:59" Then
-							Dim date_cerrunt As Date = DateTime.Now.ToString("yyyy-MM-dd")
-							Dim result_date_start As Date = date_cerrunt.AddDays(1) & " " & TextBox1.Text
-							start_check_date_paralell_line = result_date_start.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)
-						Else
-							start_check_date_paralell_line = start_time
-						End If
-						Dim check_time = Backoffice_model.check_time(Working_Pro.Label22.Text, Working_Pro.wi_no.Text, start_check_date_paralell_line, end_check_date_paralell_line)
-						If check_time = "0" Then
-							Backoffice_model.start_check_date_paralell_line = start_check_date_paralell_line
-							Backoffice_model.end_check_date_paralell_line = end_check_date_paralell_line
-							Me.Close()
-						Else
-							MsgBox("TIME DOUBLE")
-						End If
-					Else
-						MsgBox("Please check Time")
+                    If TextBox1.Text < TextBox2.Text Then
+                        If TextBox2.Text >= "00:00" And TextBox2.Text <= "07:59" Then
+                            Dim date_cerrunt As Date = DateTime.Now.ToString("yyyy-MM-dd")
+                            Dim result_date_end As Date = date_cerrunt.AddDays(1) & " " & TextBox2.Text
+                            end_check_date_paralell_line = result_date_end.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)
+                        Else
+                            end_check_date_paralell_line = end_time
+                        End If
+                        If TextBox1.Text >= "00:00" And TextBox1.Text <= "07:59" Then
+                            Dim date_cerrunt As Date = DateTime.Now.ToString("yyyy-MM-dd")
+                            Dim result_date_start As Date = date_cerrunt.AddDays(1) & " " & TextBox1.Text
+                            start_check_date_paralell_line = result_date_start.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)
+                        Else
+                            start_check_date_paralell_line = start_time
+                        End If
+                        Dim check_time = Backoffice_model.check_time(Working_Pro.Label22.Text, Working_Pro.wi_no.Text, start_check_date_paralell_line, end_check_date_paralell_line)
+                        If check_time = "0" Then
+                            Backoffice_model.start_check_date_paralell_line = start_check_date_paralell_line
+                            Backoffice_model.end_check_date_paralell_line = end_check_date_paralell_line
+                            Me.Close()
+                        Else
+                            MsgBox("TIME DOUBLE")
+                        End If
+                    Else
+                        MsgBox("Please check Time")
 					End If
 				Else
 					MsgBox("Please check Time")

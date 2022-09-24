@@ -30,10 +30,13 @@ Public Class Backoffice_model
 	Public Shared S_chk_spec_line As String = "0"
 	Public Shared start_check_date_paralell_line As String = ""
 	Public Shared end_check_date_paralell_line As String = ""
-	Public Shared start_master_shift As String = ""
-	'MsgBox(temp2Str)
-	'SQLite.SQLiteDataReader
-	Public Shared Function F_NEXT_PROCESS(ITEM_CD As String)
+    Public Shared start_master_shift As String = ""
+    Public Shared date_time_start_master_shift As Date
+    Public Shared date_time_end_check_date_paralell_linet As Date
+    Public Shared date_time_click_start As Date
+    'MsgBox(temp2Str)
+    'SQLite.SQLiteDataReader
+    Public Shared Function F_NEXT_PROCESS(ITEM_CD As String)
 		Dim api = New api()
 		Dim check_tag_type = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_LINE_TYPE?line_cd=" & MainFrm.Label4.Text)
 		If check_tag_type = "1" Then
@@ -79,11 +82,19 @@ Public Class Backoffice_model
 				'If reader.Read() Then
 				coles_lot_start_shift = reader("coles_lot_start_time").ToString()
 				coles_lot_end_shift = reader("coles_lot_end_time").ToString()
-				start_master_shift = reader("master_start_shift").ToString()
-				'Else
-				'MsgBox("ไม่มีข้อมูลกะการผลิต")
-				'End If
-			End While
+                start_master_shift = reader("master_start_shift").ToString()
+
+                date_time_start_master_shift = DateTime.Now.ToString("yyyy-MM-dd") & " " & start_master_shift
+                If Trim(Prd_detail.Label12.Text.Substring(0, 1)) = "B" Or Trim(Prd_detail.Label12.Text.Substring(0, 1)) = "Q" Or Trim(Prd_detail.Label12.Text.Substring(0, 1)) = "S" Then
+                    date_time_end_check_date_paralell_linet = DateTime.Now.ToString("yyyy-MM-dd") & " " & coles_lot_end_shift
+                    date_time_end_check_date_paralell_linet = date_time_end_check_date_paralell_linet.AddDays(1)
+                Else
+                    date_time_end_check_date_paralell_linet = DateTime.Now.ToString("yyyy-MM-dd") & " " & coles_lot_end_shift
+                End If
+                'Else
+                'MsgBox("ไม่มีข้อมูลกะการผลิต")
+                'End If
+            End While
 			reader.Close()
 		Catch ex As Exception
 			MsgBox("MSSQL Database connect failed. Please contact PC System [Function Get_close_lot_time]" & ex.Message)
@@ -370,8 +381,8 @@ Public Class Backoffice_model
 			End Try
 			SQLCmd.Connection = SQLConn
 			SQLCmd.CommandText = "EXEC [dbo].[CHECK_LOSS_DOUBLE] @date_start = '" & start_loss.ToString() & "' , @date_end = '" & end_loss.ToString() & "', @line_cd = '" & GET_LINE_PRODUCTION() & "'"
-			reader = SQLCmd.ExecuteReader()
-			Dim tmp_result As Integer = 0
+            reader = SQLCmd.ExecuteReader()
+            Dim tmp_result As Integer = 0
 			While reader.Read()
 				tmp_result = reader("c_id").ToString()
 			End While
@@ -602,8 +613,8 @@ re_insert_rework_act:
 	Public Shared Sub Check_detail_actual_insert_act()
 		updated_data_to_dbsvr()
 		Dim api = New api()
-		Dim result_update_count_pro = api.Load_data("http://192.168.161.207/API_NEW_FA/Check_detail_actual_insert_act/Get_detail_act_test_system?line_cd=" & GET_LINE_PRODUCTION())
-	End Sub
+        Dim result_update_count_pro = api.Load_data("http://192.168.161.207/API_NEW_FA/Check_detail_actual_insert_act/Get_detail_act?line_cd=" & GET_LINE_PRODUCTION())
+    End Sub
 	Public Shared Sub Check_detail_actual_insert_act_no_api()
 		updated_data_to_dbsvr()
 	End Sub
@@ -1276,24 +1287,41 @@ recheck:
 			Application.Exit()
 		End Try
 	End Function
-	Public Shared Function update_tagprint(wi As String)
-		Dim reader As SqlDataReader
-		Dim SQLConn As New SqlConnection() 'The SQL Connection
-		Dim SQLCmd As New SqlCommand()
+    Public Shared Function update_tagprint(wi As String)
+        Dim reader As SqlDataReader
+        Dim SQLConn As New SqlConnection() 'The SQL Connection
+        Dim SQLCmd As New SqlCommand()
 
-		Try
-			SQLConn.ConnectionString = sqlConnect 'Set the Connection String
-			SQLConn.Open()
-			SQLCmd.Connection = SQLConn
-			SQLCmd.CommandText = "update tag_print_detail set flg_control = '2' where flg_control = '0' and  wi = '" & wi & "'"
-			reader = SQLCmd.ExecuteReader()
-			reader.Close()
-			'Return reader
-		Catch ex As Exception
-			SQLConn.Close()
-		End Try
-	End Function
-	Public Shared Function update_tagprint_main(wi As String)
+        Try
+            SQLConn.ConnectionString = sqlConnect 'Set the Connection String
+            SQLConn.Open()
+            SQLCmd.Connection = SQLConn
+            SQLCmd.CommandText = "update tag_print_detail set flg_control = '2' where flg_control = '0' and  wi = '" & wi & "'"
+            reader = SQLCmd.ExecuteReader()
+            reader.Close()
+            'Return reader
+        Catch ex As Exception
+            SQLConn.Close()
+        End Try
+    End Function
+    Public Shared Function update_tagprint_sub(wi As String)
+        Dim reader As SqlDataReader
+        Dim SQLConn As New SqlConnection() 'The SQL Connection
+        Dim SQLCmd As New SqlCommand()
+
+        Try
+            SQLConn.ConnectionString = sqlConnect 'Set the Connection String
+            SQLConn.Open()
+            SQLCmd.Connection = SQLConn
+            SQLCmd.CommandText = "update tag_print_detail_sub set flg_control = '2' where flg_control = '0' and  wi = '" & wi & "'"
+            reader = SQLCmd.ExecuteReader()
+            reader.Close()
+            'Return reader
+        Catch ex As Exception
+            SQLConn.Close()
+        End Try
+    End Function
+    Public Shared Function update_tagprint_main(wi As String)
 		Dim reader As SqlDataReader
 		Dim SQLConn As New SqlConnection() 'The SQL Connection
 		Dim SQLCmd As New SqlCommand()
@@ -1311,9 +1339,8 @@ recheck:
 		End Try
 	End Function
 	Public Shared Function Insert_tag_print(wi As String, qr_detail As String, box_no As Integer, print_count As Integer, seq_no As String, shift As String, flg_control As Integer, item_cd As String)
-		Dim currdated As String = DateTime.Now.ToString("yyyy/MM/dd H:m:s")
-
-		update_tagprint(wi)
+        Dim currdated As String = DateTime.Now.ToString("yyyy/MM/dd H:m:s")
+        update_tagprint(wi)
 		Dim reader As SqlDataReader
 		Dim SQLConn As New SqlConnection() 'The SQL Connection
 		Dim SQLCmd As New SqlCommand()
@@ -1391,15 +1418,16 @@ recheck:
 		Dim reader As SqlDataReader
 		Dim SQLConn As New SqlConnection() 'The SQL Connection
 		Dim SQLCmd As New SqlCommand()
-		Try
-			SQLConn.ConnectionString = sqlConnect 'Set the Connection String
-			SQLConn.Open()
+        Try
+            update_tagprint_sub(wi)
+            SQLConn.ConnectionString = sqlConnect 'Set the Connection String
+            SQLConn.Open()
             SQLCmd.Connection = SQLConn
             SQLCmd.CommandText = "INSERT INTO tag_print_detail_sub(tag_ref_id , line_cd , tag_qr_detail , flg_control , created_date , updated_date , tag_wi_no) VALUES ('" & ref_id & "','" & line & "','" & qr_code & "' ,'" & print_back.check_tagprint_main() & "' , '" & currdated & "' , '" & currdated & "' , '" & wi & "')"
             reader = SQLCmd.ExecuteReader()
-			'Return reader
-		Catch ex As Exception
-			MsgBox("MSSQL Database connect failed. Please contact PC System [Function Insert_tag_print_sub]")
+            'Return reader
+        Catch ex As Exception
+            MsgBox("MSSQL Database connect failed. Please contact PC System [Function Insert_tag_print_sub]")
 			SQLConn.Close()
 			'Application.Exit()
 		End Try
@@ -3030,8 +3058,8 @@ recheck:
 			sqliteConn = Nothing
 		Catch ex As Exception
 			MsgBox("SQLite Database connect failed. Please contact PC System [Function get_trdata_sqlite]")
-			sqliteConn.Close()
-		End Try
+            sqliteConn.Close()
+        End Try
 	End Function
 
 

@@ -271,6 +271,7 @@ Public Class Working_Pro
         btn_closelot.Visible = True
         btn_stop.Visible = False
         btn_start.Visible = True
+        btn_defect.Enabled = False
     End Sub
     Private Sub btn_stop_Click(sender As Object, e As EventArgs) Handles btn_stop.Click
         check_network_frist = 1
@@ -432,6 +433,8 @@ Public Class Working_Pro
         If check_in_up_seq = 0 Then
             Dim date_st1 As String = DateTime.Now.ToString("yyyy/MM/dd H:m:s")
             Dim date_end1 As String = DateTime.Now.ToString("yyyy/MM/dd H:m:s")
+            Backoffice_model.date_time_click_start = DateTime.Now.ToString("yyyy-MM-dd HH:mm") & ":00"
+
             Dim GET_SEQ = Backoffice_model.GET_SEQ_PLAN_current(Prd_detail.lb_wi.Text, Backoffice_model.GET_LINE_PRODUCTION(), date_st1, date_end1)
             Try
                 If GET_SEQ.Read() Then
@@ -547,13 +550,9 @@ Public Class Working_Pro
             'Dim temppo As Double = Label34.Text
             CircularProgressBar2.Text = 0 & "%"
             CircularProgressBar2.Value = 0
-
             Dim value_temps As Double
-
             value_temps = Double.TryParse(Label34.Text, value_temps)
-
             Dim testt As Integer = Label34.Text
-
             Dim newDate As Date = DateAdd("n", testt, Now)
             Label20.Text = newDate.ToString("H : mm")
             'MsgBox(Label20.Text)
