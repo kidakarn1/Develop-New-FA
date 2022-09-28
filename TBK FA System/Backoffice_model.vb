@@ -37,16 +37,61 @@ Public Class Backoffice_model
     'MsgBox(temp2Str)
     'SQLite.SQLiteDataReader
     Public Shared Function F_NEXT_PROCESS(ITEM_CD As String)
-		Dim api = New api()
-		Dim check_tag_type = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_LINE_TYPE?line_cd=" & MainFrm.Label4.Text)
-		If check_tag_type = "1" Then
-			Dim result_update_count_pro1 = api.Load_data("http://192.168.161.207/API_NEW_FA/Api_next_process?line_cd=" & GET_LINE_PRODUCTION() & "&item_cd=" & ITEM_CD)
-			Return result_update_count_pro1
-		Else
-			Return "ISUZU"
-		End If
-	End Function
-	Public Shared Function check_version_result(NAME_VERSION As String)
+        Dim api = New api()
+        Dim check_tag_type = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_LINE_TYPE?line_cd=" & MainFrm.Label4.Text)
+        If check_tag_type = "1" Then
+            Dim result_update_count_pro1 = api.Load_data("http://192.168.161.207/API_NEW_FA/Api_next_process?line_cd=" & GET_LINE_PRODUCTION() & "&item_cd=" & ITEM_CD)
+            Return result_update_count_pro1
+        Else
+            Return "ISUZU"
+        End If
+    End Function
+    Public Shared Sub Clear_sqlite()
+        '  Dim currdated As Date = DateTime.Now.ToString("yyyy/MM/dd")
+        ' st_time = currdated.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)
+
+        Dim currdated As String = DateTime.Now.ToString("yyyy-MM-dd")
+        Dim today As Date = Date.Today
+        Dim date_start As DateTime = today.AddDays(-200)
+        Dim format_tommorow = "yyyy-MM-dd"
+        Dim convert_date_start = date_start.ToString(format_tommorow)
+
+        Dim currdated1 As String = DateTime.Now.ToString("yyyy/MM/dd")
+        Dim today1 As Date = Date.Today
+        Dim date_start1 As DateTime = today1.AddDays(-200)
+        Dim format_tommorow1 = "yyyy/MM/dd"
+        Dim convert_date_start1 = date_start1.ToString(format_tommorow1)
+
+        Dim command_data() As String = {
+                "DELETE FROM act_ins where st_time BETWEEN '" & convert_date_start & "' AND '" & currdated & "' and tr_status = '1' ",
+                "DELETE FROM close_lot_act where prd_st_date BETWEEN '" & convert_date_start & "' AND '" & currdated & "' and transfer_flg = '1'",
+                "DELETE FROM loss_actual where start_loss BETWEEN '" & convert_date_start1 & "' AND '" & currdated1 & "' and transfer_flg = '1'"
+            }
+        For i = 0 To command_data.Length - 1
+            Check_connect_sqlite()
+            Dim sqliteConn As New SQLiteConnection(sqliteConnect)
+            Try
+                sqliteConn.Open()
+            Catch ex As Exception
+                sqliteConn.Close()
+                sqliteConn.Open()
+            End Try
+            Try
+                Dim cmd As New SQLiteCommand
+                cmd.Connection = sqliteConn
+                cmd.CommandText = command_data(i)
+                Dim LoadSQL As SQLiteDataReader = cmd.ExecuteReader()
+                sqliteConn.Close()
+
+            Catch ex As Exception
+                MsgBox("SQLite Database connect failed. Please contact PC System [Function Clear_sqlite]" & ex.Message)
+                sqliteConn.Dispose()
+                'sqliteConn.Close()
+                sqliteConn = Nothing
+            End Try
+        Next
+    End Sub
+    Public Shared Function check_version_result(NAME_VERSION As String)
 		Dim api = New api()
 		Dim result_update_count_pro = api.Load_data("http://192.168.161.207/API_NEW_FA/UPDATE_PATCH/F_UPDATE_PATCH?VERSION_NAME=" & NAME_VERSION)
 		Return result_update_count_pro
@@ -132,8 +177,10 @@ Public Class Backoffice_model
 	End Function
 	Public Shared Function sqlite_conn_dbsv()
 		Dim sqliteConn As New SQLiteConnection(sqliteConnect)
-		Check_connect_sqlite()
-		Try
+        Check_connect_sqlite()
+        Clear_sqlite()
+
+        Try
 			sqliteConn.Open()
 			Dim temp_stre As String
 			Dim cmd As New SQLiteCommand

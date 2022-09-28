@@ -44,6 +44,11 @@ Partial Class ins_qty
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.SPECIAL_MENU = New System.Windows.Forms.Button()
+        Me.Start_input_data_spc = New System.Windows.Forms.Label()
+        Me.End_input_data_spc = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.show_remain_qty = New System.Windows.Forms.Label()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -52,7 +57,7 @@ Partial Class ins_qty
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(355, 9)
+        Me.Label2.Location = New System.Drawing.Point(265, 10)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(231, 24)
         Me.Label2.TabIndex = 0
@@ -248,12 +253,73 @@ Partial Class ins_qty
         Me.SPECIAL_MENU.Text = "SPECIAL MENU"
         Me.SPECIAL_MENU.UseVisualStyleBackColor = False
         '
+        'Start_input_data_spc
+        '
+        Me.Start_input_data_spc.AutoSize = True
+        Me.Start_input_data_spc.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Start_input_data_spc.Location = New System.Drawing.Point(644, 179)
+        Me.Start_input_data_spc.Name = "Start_input_data_spc"
+        Me.Start_input_data_spc.Size = New System.Drawing.Size(106, 24)
+        Me.Start_input_data_spc.TabIndex = 41
+        Me.Start_input_data_spc.Text = "HH:mm:ss"
+        Me.Start_input_data_spc.Visible = False
+        '
+        'End_input_data_spc
+        '
+        Me.End_input_data_spc.AutoSize = True
+        Me.End_input_data_spc.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.End_input_data_spc.Location = New System.Drawing.Point(644, 251)
+        Me.End_input_data_spc.Name = "End_input_data_spc"
+        Me.End_input_data_spc.Size = New System.Drawing.Size(106, 24)
+        Me.End_input_data_spc.TabIndex = 42
+        Me.End_input_data_spc.Text = "HH:mm:ss"
+        Me.End_input_data_spc.Visible = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(629, 144)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(142, 25)
+        Me.Label1.TabIndex = 43
+        Me.Label1.Text = "START TIME"
+        Me.Label1.Visible = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(644, 215)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(114, 25)
+        Me.Label3.TabIndex = 44
+        Me.Label3.Text = "END TIME"
+        Me.Label3.Visible = False
+        '
+        'show_remain_qty
+        '
+        Me.show_remain_qty.AutoSize = True
+        Me.show_remain_qty.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.show_remain_qty.Location = New System.Drawing.Point(488, 10)
+        Me.show_remain_qty.Name = "show_remain_qty"
+        Me.show_remain_qty.Size = New System.Drawing.Size(100, 24)
+        Me.show_remain_qty.TabIndex = 45
+        Me.show_remain_qty.Text = "XXXXXX"
+        '
         'ins_qty
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(800, 600)
+        Me.Controls.Add(Me.show_remain_qty)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.End_input_data_spc)
+        Me.Controls.Add(Me.Start_input_data_spc)
         Me.Controls.Add(Me.SPECIAL_MENU)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox2)
@@ -304,4 +370,9 @@ Partial Class ins_qty
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Timer1 As Timer
     Friend WithEvents SPECIAL_MENU As Button
+    Friend WithEvents Start_input_data_spc As Label
+    Friend WithEvents End_input_data_spc As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents show_remain_qty As Label
 End Class
