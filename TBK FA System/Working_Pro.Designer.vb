@@ -150,6 +150,7 @@ Partial Class Working_Pro
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.Label_bach = New System.Windows.Forms.Label()
+        Me.Timer_new_dio = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -705,7 +706,7 @@ Partial Class Working_Pro
         '
         '_Edit_Up_0
         '
-        Me._Edit_Up_0.Location = New System.Drawing.Point(38, 461)
+        Me._Edit_Up_0.Location = New System.Drawing.Point(41, 461)
         Me._Edit_Up_0.Name = "_Edit_Up_0"
         Me._Edit_Up_0.Size = New System.Drawing.Size(100, 20)
         Me._Edit_Up_0.TabIndex = 4567
@@ -950,7 +951,7 @@ Partial Class Working_Pro
         Me.lb_font3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.lb_font3.Location = New System.Drawing.Point(218, 69)
         Me.lb_font3.Name = "lb_font3"
-        Me.lb_font3.Size = New System.Drawing.Size(55, 16)
+        Me.lb_font3.Size = New System.Drawing.Size(54, 16)
         Me.lb_font3.TabIndex = 4590
         Me.lb_font3.Text = "Label7"
         Me.lb_font3.Visible = False
@@ -1647,6 +1648,9 @@ Partial Class Working_Pro
         Me.Label_bach.TabIndex = 4633
         Me.Label_bach.Text = "0"
         '
+        'Timer_new_dio
+        '
+        '
         'Working_Pro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1914,4 +1918,5 @@ Partial Class Working_Pro
     Friend WithEvents Timer2 As Timer
     Friend WithEvents Timer3 As Timer
     Friend WithEvents Label_bach As Label
+    Friend WithEvents Timer_new_dio As Timer
 End Class

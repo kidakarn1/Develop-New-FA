@@ -36,6 +36,29 @@ Public Class Backoffice_model
     Public Shared date_time_click_start As Date
     'MsgBox(temp2Str)
     'SQLite.SQLiteDataReader
+
+    Public Shared Function B_master_device()
+        Dim sqliteConn As New SQLiteConnection(sqliteConnect)
+        Try
+            sqliteConn.Open()
+        Catch ex As Exception
+            sqliteConn.Close()
+            sqliteConn.Open()
+        End Try
+        Try
+            Dim cmd As New SQLiteCommand
+            cmd.Connection = sqliteConn
+            cmd.CommandText = "select * from catagory_counter where count_flg='1'"
+            Dim LoadSQL As SQLiteDataReader = cmd.ExecuteReader()
+            sqliteConn.Close()
+            Return LoadSQL
+        Catch ex As Exception
+            MsgBox("SQLite Database connect failed. Please contact PC System [Function Clear_sqlite]" & ex.Message)
+            sqliteConn.Dispose()
+            'sqliteConn.Close()
+            sqliteConn = Nothing
+        End Try
+    End Function
     Public Shared Function F_NEXT_PROCESS(ITEM_CD As String)
         Dim api = New api()
         Dim check_tag_type = api.Load_data("http://192.168.161.207/API_NEW_FA/GET_DATA_NEW_FA/GET_LINE_TYPE?line_cd=" & MainFrm.Label4.Text)
@@ -2426,16 +2449,14 @@ recheck:
 			SQLConn.ConnectionString = sqlConnect 'Set the Connection String
 			SQLConn.Open()
 			SQLCmd.Connection = SQLConn
-			'SQLCmd.CommandText = "Select sw.WI,sw.ITEM_CD,sw.ITEM_NAME,sw.QTY,sw.qty - SUM (ISNULL(pa.act_qty, 0 )) as 'remain_qty',ISNULL(pa.prd_flg , 0 ) as 'prd_flg'  from sup_work_plan_supply_dev as sw full outer JOIN production_actual as pa on sw.WI = pa.wi WHERE sw.LINE_CD = '" & line_cd & "' and sw.LVL = '1' and (pa.comp_flg <> '1' or pa.comp_flg is NULL) GROUP BY sw.wi,sw.ITEM_CD,sw.ITEM_NAME,sw.QTY,pa.prd_flg"
-
-			SQLCmd.CommandText = "select * from sys_defect_mst where enable = '1'"
+            'SQLCmd.CommandText = "Select sw.WI,sw.ITEM_CD,sw.ITEM_NAME,sw.QTY,sw.qty - SUM (ISNULL(pa.act_qty, 0 )) as 'remain_qty',ISNULL(pa.prd_flg , 0 ) as 'prd_flg'  from sup_work_plan_supply_dev as sw full outer JOIN production_actual as pa on sw.WI = pa.wi WHERE sw.LINE_CD = '" & line_cd & "' and sw.LVL = '1' and (pa.comp_flg <> '1' or pa.comp_flg is NULL) GROUP BY sw.wi,sw.ITEM_CD,sw.ITEM_NAME,sw.QTY,pa.prd_flg"
+            SQLCmd.CommandText = "select * from sys_defect_mst where enable = '1'"
 			reader = SQLCmd.ExecuteReader()
 			Return reader
 		Catch ex As Exception
 			MsgBox("MSSQL Database connect failed. Please contact PC System [Function get_defect_mst]")
-			SQLConn.Close()
-
-			Application.Exit()
+            SQLConn.Close()
+            Application.Exit()
 		End Try
 	End Function
 
@@ -2509,8 +2530,8 @@ recheck:
 
 	Public Shared Function saveLineConfig(pd As String, line_cd As String, count_type As String, cavity As Integer, scanner_port As String, printer_port As String, dio_port As String)
 		Dim currdated As String = DateTime.Now.ToString("yyyy/MM/dd")
-		Dim sqliteConn As New SQLiteConnection(sqliteConnect)
-		Try
+        Dim sqliteConn As New SQLiteConnection(sqliteConnect)
+        Try
 			sqliteConn.Open()
 
 			Dim cmd As New SQLiteCommand
@@ -2522,10 +2543,9 @@ recheck:
 			Return LoadSQL
 
 
-
-		Catch ex As Exception
-			MsgBox("SQLite Database connect failed. Please contact PC System [Function saveLineConfig]")
-			sqliteConn.Close()
+        Catch ex As Exception
+            MsgBox("SQLite Database connect failed. Please contact PC System [Function saveLineConfig] = " & ex.Message)
+            sqliteConn.Close()
 		End Try
 
 
@@ -2604,12 +2624,12 @@ re_insert_data:
 		Dim SQLConn As New SqlConnection() 'The SQL Connection
 		Dim SQLCmd As New SqlCommand()
 		Try
-			SQLConn.ConnectionString = sqlConnect 'Set the Connection String
-			SQLConn.Open()
-			SQLCmd.Connection = SQLConn
-			SQLCmd.CommandText = "SELECT * FROM sys_user WHERE emp_id = '" & usernm & "' AND passwd = '" & passwd & "'"
-			reader = SQLCmd.ExecuteReader()
-			Return reader
+            SQLConn.ConnectionString = sqlConnect 'Set the Connection String
+            SQLConn.Open()
+            SQLCmd.Connection = SQLConn
+            SQLCmd.CommandText = "SELECT * FROM sys_user WHERE emp_id = '" & usernm & "' AND passwd = '" & passwd & "'"
+            reader = SQLCmd.ExecuteReader()
+            Return reader
 		Catch ex As Exception
 			MsgBox("MSSQL Database connect failed. Please contact PC System [Function chkLogin]")
 			SQLConn.Close()

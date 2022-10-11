@@ -84,7 +84,7 @@ Partial Class MainFrm
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(257, 26)
         Me.Label9.TabIndex = 23
-        Me.Label9.Text = "New FA system (V 1.6.6) "
+        Me.Label9.Text = "New FA system (V 1.6.7) "
         '
         'Label8
         '
@@ -471,7 +471,7 @@ Partial Class MainFrm
         Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.InitialImage = CType(resources.GetObject("PictureBox1.InitialImage"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(680, 16)
+        Me.PictureBox1.Location = New System.Drawing.Point(681, 16)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(100, 100)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage

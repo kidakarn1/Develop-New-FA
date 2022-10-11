@@ -46,10 +46,9 @@ Partial Class ins_qty_special_time
         'Button14
         '
         Me.Button14.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button14.Location = New System.Drawing.Point(592, 806)
-        Me.Button14.Margin = New System.Windows.Forms.Padding(6)
+        Me.Button14.Location = New System.Drawing.Point(296, 419)
         Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(250, 192)
+        Me.Button14.Size = New System.Drawing.Size(125, 100)
         Me.Button14.TabIndex = 37
         Me.Button14.Text = "DEL"
         Me.Button14.UseVisualStyleBackColor = True
@@ -57,10 +56,9 @@ Partial Class ins_qty_special_time
         'Button13
         '
         Me.Button13.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button13.Location = New System.Drawing.Point(326, 806)
-        Me.Button13.Margin = New System.Windows.Forms.Padding(6)
+        Me.Button13.Location = New System.Drawing.Point(163, 419)
         Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(250, 192)
+        Me.Button13.Size = New System.Drawing.Size(125, 100)
         Me.Button13.TabIndex = 36
         Me.Button13.Text = "0"
         Me.Button13.UseVisualStyleBackColor = True
@@ -69,10 +67,9 @@ Partial Class ins_qty_special_time
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label3.Location = New System.Drawing.Point(406, 98)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
+        Me.Label3.Location = New System.Drawing.Point(203, 51)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(81, 48)
+        Me.Label3.Size = New System.Drawing.Size(43, 25)
         Me.Label3.TabIndex = 35
         Me.Label3.Text = "TO"
         '
@@ -80,20 +77,18 @@ Partial Class ins_qty_special_time
         '
         Me.TextBox2.Enabled = False
         Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 38.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(504, 60)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(6)
+        Me.TextBox2.Location = New System.Drawing.Point(252, 31)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(334, 123)
+        Me.TextBox2.Size = New System.Drawing.Size(169, 65)
         Me.TextBox2.TabIndex = 34
         Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Button12
         '
         Me.Button12.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button12.Location = New System.Drawing.Point(58, 806)
-        Me.Button12.Margin = New System.Windows.Forms.Padding(6)
+        Me.Button12.Location = New System.Drawing.Point(29, 419)
         Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(250, 192)
+        Me.Button12.Size = New System.Drawing.Size(125, 100)
         Me.Button12.TabIndex = 33
         Me.Button12.Text = "CLEAR"
         Me.Button12.UseVisualStyleBackColor = True
@@ -102,10 +97,9 @@ Partial Class ins_qty_special_time
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Label1.Location = New System.Drawing.Point(369, 17)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
+        Me.Label1.Location = New System.Drawing.Point(184, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(358, 37)
+        Me.Label1.Size = New System.Drawing.Size(188, 20)
         Me.Label1.TabIndex = 29
         Me.Label1.Text = "INPUT TIME SPECIAL"
         '
@@ -113,10 +107,9 @@ Partial Class ins_qty_special_time
         '
         Me.Button9.Enabled = False
         Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button9.Location = New System.Drawing.Point(592, 602)
-        Me.Button9.Margin = New System.Windows.Forms.Padding(6)
+        Me.Button9.Location = New System.Drawing.Point(296, 313)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(250, 192)
+        Me.Button9.Size = New System.Drawing.Size(125, 100)
         Me.Button9.TabIndex = 28
         Me.Button9.Text = "9"
         Me.Button9.UseVisualStyleBackColor = True
@@ -125,10 +118,9 @@ Partial Class ins_qty_special_time
         '
         Me.Button8.Enabled = False
         Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button8.Location = New System.Drawing.Point(326, 602)
-        Me.Button8.Margin = New System.Windows.Forms.Padding(6)
+        Me.Button8.Location = New System.Drawing.Point(163, 313)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(250, 192)
+        Me.Button8.Size = New System.Drawing.Size(125, 100)
         Me.Button8.TabIndex = 27
         Me.Button8.Text = "8"
         Me.Button8.UseVisualStyleBackColor = True
@@ -137,10 +129,9 @@ Partial Class ins_qty_special_time
         '
         Me.Button7.Enabled = False
         Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button7.Location = New System.Drawing.Point(58, 602)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(6)
+        Me.Button7.Location = New System.Drawing.Point(29, 313)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(250, 192)
+        Me.Button7.Size = New System.Drawing.Size(125, 100)
         Me.Button7.TabIndex = 26
         Me.Button7.Text = "7"
         Me.Button7.UseVisualStyleBackColor = True
@@ -149,10 +140,9 @@ Partial Class ins_qty_special_time
         '
         Me.Button6.Enabled = False
         Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button6.Location = New System.Drawing.Point(592, 398)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(6)
+        Me.Button6.Location = New System.Drawing.Point(296, 207)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(250, 192)
+        Me.Button6.Size = New System.Drawing.Size(125, 100)
         Me.Button6.TabIndex = 25
         Me.Button6.Text = "6"
         Me.Button6.UseVisualStyleBackColor = True
@@ -161,10 +151,9 @@ Partial Class ins_qty_special_time
         '
         Me.Button5.Enabled = False
         Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button5.Location = New System.Drawing.Point(326, 398)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(6)
+        Me.Button5.Location = New System.Drawing.Point(163, 207)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(250, 192)
+        Me.Button5.Size = New System.Drawing.Size(125, 100)
         Me.Button5.TabIndex = 24
         Me.Button5.Text = "5"
         Me.Button5.UseVisualStyleBackColor = True
@@ -173,10 +162,9 @@ Partial Class ins_qty_special_time
         '
         Me.Button4.Enabled = False
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button4.Location = New System.Drawing.Point(58, 398)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(6)
+        Me.Button4.Location = New System.Drawing.Point(29, 207)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(250, 192)
+        Me.Button4.Size = New System.Drawing.Size(125, 100)
         Me.Button4.TabIndex = 23
         Me.Button4.Text = "4"
         Me.Button4.UseVisualStyleBackColor = True
@@ -185,10 +173,9 @@ Partial Class ins_qty_special_time
         '
         Me.Button3.Enabled = False
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button3.Location = New System.Drawing.Point(592, 196)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(6)
+        Me.Button3.Location = New System.Drawing.Point(296, 102)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(250, 192)
+        Me.Button3.Size = New System.Drawing.Size(125, 100)
         Me.Button3.TabIndex = 22
         Me.Button3.Text = "3"
         Me.Button3.UseVisualStyleBackColor = True
@@ -196,10 +183,9 @@ Partial Class ins_qty_special_time
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button2.Location = New System.Drawing.Point(330, 194)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(6)
+        Me.Button2.Location = New System.Drawing.Point(165, 101)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(250, 192)
+        Me.Button2.Size = New System.Drawing.Size(125, 100)
         Me.Button2.TabIndex = 21
         Me.Button2.Text = "2"
         Me.Button2.UseVisualStyleBackColor = True
@@ -207,10 +193,9 @@ Partial Class ins_qty_special_time
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button1.Location = New System.Drawing.Point(58, 194)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(6)
+        Me.Button1.Location = New System.Drawing.Point(29, 101)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(250, 192)
+        Me.Button1.Size = New System.Drawing.Size(125, 100)
         Me.Button1.TabIndex = 20
         Me.Button1.Text = "1"
         Me.Button1.UseVisualStyleBackColor = True
@@ -220,10 +205,9 @@ Partial Class ins_qty_special_time
         Me.TextBox1.Cursor = System.Windows.Forms.Cursors.Default
         Me.TextBox1.Enabled = False
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 38.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(58, 60)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(6)
+        Me.TextBox1.Location = New System.Drawing.Point(29, 31)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(334, 123)
+        Me.TextBox1.Size = New System.Drawing.Size(169, 65)
         Me.TextBox1.TabIndex = 19
         Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -232,10 +216,9 @@ Partial Class ins_qty_special_time
         Me.Button10.BackColor = System.Drawing.Color.SpringGreen
         Me.Button10.Enabled = False
         Me.Button10.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button10.Location = New System.Drawing.Point(592, 1013)
-        Me.Button10.Margin = New System.Windows.Forms.Padding(6)
+        Me.Button10.Location = New System.Drawing.Point(296, 527)
         Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(250, 115)
+        Me.Button10.Size = New System.Drawing.Size(125, 60)
         Me.Button10.TabIndex = 31
         Me.Button10.Text = "OK"
         Me.Button10.UseVisualStyleBackColor = False
@@ -244,10 +227,9 @@ Partial Class ins_qty_special_time
         '
         Me.Button11.BackColor = System.Drawing.Color.Red
         Me.Button11.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button11.Location = New System.Drawing.Point(58, 1013)
-        Me.Button11.Margin = New System.Windows.Forms.Padding(6)
+        Me.Button11.Location = New System.Drawing.Point(29, 527)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(250, 115)
+        Me.Button11.Size = New System.Drawing.Size(125, 60)
         Me.Button11.TabIndex = 32
         Me.Button11.Text = "CANCEL"
         Me.Button11.UseVisualStyleBackColor = False
@@ -256,19 +238,18 @@ Partial Class ins_qty_special_time
         '
         Me.show_time_add_qty.AutoSize = True
         Me.show_time_add_qty.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.show_time_add_qty.Location = New System.Drawing.Point(729, 17)
-        Me.show_time_add_qty.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
+        Me.show_time_add_qty.Location = New System.Drawing.Point(364, 9)
         Me.show_time_add_qty.Name = "show_time_add_qty"
-        Me.show_time_add_qty.Size = New System.Drawing.Size(115, 37)
+        Me.show_time_add_qty.Size = New System.Drawing.Size(62, 20)
         Me.show_time_add_qty.TabIndex = 38
         Me.show_time_add_qty.Text = "XX:XX"
         '
         'ins_qty_special_time
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightBlue
-        Me.ClientSize = New System.Drawing.Size(900, 1154)
+        Me.ClientSize = New System.Drawing.Size(450, 600)
         Me.Controls.Add(Me.show_time_add_qty)
         Me.Controls.Add(Me.Button14)
         Me.Controls.Add(Me.Button13)
@@ -290,7 +271,6 @@ Partial Class ins_qty_special_time
         Me.Controls.Add(Me.TextBox1)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "ins_qty_special_time"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ins_qty_special"
